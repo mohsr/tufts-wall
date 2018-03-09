@@ -6,7 +6,7 @@ Tufts Events Billboard
 
 Problem statement
 ====================
-Posters for events at Tufts Campus usually reside in the stairs leading to the academic quad from Tisch Library. These posters are replaced every week and tens of posters go to waste having potentially made little impact on the event's attendance, as not many people both look at and remember these events. We believe this information should be delivered digitally, since the majority of Tufts students already seek information on the web for events they are interested about.
+Posters for events at Tufts usually reside along the stairs leading to the Academic Quad from Tisch Library. These posters are replaced every week and tens of posters go to waste having potentially made little impact on the event's attendance, as not many people both look at and remember these events. We believe this information should be delivered digitally, since the majority of Tufts students already seek information on the web for events they are interested about.
 
 How do you solve the problem?
 ====================
