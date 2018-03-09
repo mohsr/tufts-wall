@@ -29,4 +29,6 @@ We won't be using any algorithms or special techniques in this project.
 
 Electronic Mockups
 ====================
-Here is a Balsamiq mockup of our web page running on both laptops and mobile phones: https://puu.sh/zBjho/f5aa18131a.png
+Here is a Balsamiq mockup of our web page running on both laptops and mobile phones:
+
+![Wireframe of our app running on laptop and a mobile phone](images/wireframe.png)
