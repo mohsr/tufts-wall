@@ -32,3 +32,8 @@ Electronic Mockups
 Here is a Balsamiq mockup of our web page running on both laptops and mobile phones:
 
 ![Wireframe of our app running on laptop and a mobile phone](images/wireframe.png)
+
+# Comments by Ming
+* This proposal is excellent, well written
+* If I recall correctly, I pre-approved the idea
+* Here's a thought: will I be able to move/scroll left and right (not up and down) the wall of posters on a desktop screen?  Oh, and select type of (virtual) paper to use?
