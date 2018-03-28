@@ -1,10 +1,10 @@
 /* This is a style sheet */
 
 body {
-	background-color: #1E90FF;
+	/*background-color: #1E90FF;*/
 	font-family: "Avenir Next";
 	font-size: 28px;
-	color: white;
+	color: black;
 }
 
 h1, h2, h3, p {
@@ -15,4 +15,9 @@ h1, h2, h3, p {
 
 .bold-title {
 	font-weight: bold;
+}
+
+body {
+	background-image: "images/brickbackground.jpeg";
+	background-color: #efefef;
 }
