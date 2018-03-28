@@ -18,6 +18,7 @@ h1, h2, h3, p {
 }
 
 body {
-	background-image: "images/brickbackground.jpeg";
+	background-image: url("images/brickbackground.jpeg");
 	background-color: #efefef;
+	background-size: cover;
 }
