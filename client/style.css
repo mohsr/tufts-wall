@@ -36,6 +36,7 @@ body {
 	overflow: hidden;
 	padding-left: 10px; 
 	padding-right: 10px;
+	padding-bottom: 40px;
 }
 
 #carousel .slidebottom {
@@ -54,11 +55,11 @@ p {
 }
 
 #carousel .info {
-background-color:#b3ccff;
-height: 15%;
-width: auto; 
-padding-left: 10px; 
-padding-right: 10px; 
-padding-top: 5%; 
-padding-bottom: 5%;  
+	background-color:#b3ccff;
+	height: 15%;
+	width: auto; 
+	padding-left: 10px; 
+	padding-right: 10px; 
+	padding-top: 5%; 
+	padding-bottom: 5%;  
 }
