@@ -2,12 +2,19 @@ Week of 3/30 - 4/6
 
 Accomplishments this Week:
 	- Removed visible scroll wheel.
-	- Set up server and started working on APi roots.
+	- Set up server and started working on API routes.
+		- Added MongoDB integration.
+		- Added GET / route to get homepage.
+		- Added GET /events route to get events in JSON format from database.
+		- Added POST /submit route to submit event information to the database.
 
 Challenges Faced:
 	- PDFs "wobble" when scrolled on, should be static.
+	- Different browsers handle PDFs differently.
 	- Posters cannot be scrolled through when mouse is on poster.
 
 Goals for Next Week:
 	- Adjust scrolling speed.
 	- Add specific submission page.
+	- Work further on server routes.
+	- Work on admin page.
