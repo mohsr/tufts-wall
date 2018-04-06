@@ -59,5 +59,27 @@
 	</div>
 </form>
 
+<!-- Horizontal scrolling with a mouse scroll wheel -->
+<!-- https://stackoverflow.com/questions/11700927/horizontal-scrolling-with-mouse-wheel-in-a-div -->
+<script>
+(function() {
+    function scrollHorizontally(e) {
+        e = window.event || e;
+        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+        document.getElementById('carousel').scrollLeft -= (delta*40); // Multiplied by 40
+        e.preventDefault();
+    }
+    if (document.getElementById('carousel').addEventListener) {
+        // IE9, Chrome, Safari, Opera
+        document.getElementById('carousel').addEventListener("mousewheel", scrollHorizontally, false);
+        // Firefox
+        document.getElementById('carousel').addEventListener("DOMMouseScroll", scrollHorizontally, false);
+    } else {
+        // IE 6/7/8
+        document.getElementById('carousel').attachEvent("onmousewheel", scrollHorizontally);
+    }
+})();
+</script>
+
 </body>
 </html>
