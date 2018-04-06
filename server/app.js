@@ -13,12 +13,31 @@ var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
 
 /* Set up app for use. */
 app.use(bodyparser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/public'));
+app.use(bodyparser.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/../client'));
 
-/* Routes for the serve. */
+/*
+ * Server routes to be implemented:
+ * -- GET --
+ * [X] Serve index.html
+ * [ ] Get events and information, including files
+ * -- POST --
+ * [ ] Submit a PDF file
+ */
+
+/* Get index.html. */
 app.get('/', function(req, res) {
-	res.send("<!doctype HTML><html><head><title>Comp20 Team3</title></head><body><p>Here's the site!</p></body></html>")
+	res.sendFile('index.html');
+});
+
+/* Get information on events, including posters. */
+app.get('/events', function(req, res) {
+
+});
+
+/* Submit an event. */
+app.post('/submit', function(req, res) {
+
 });
 
 /* Listen in on a port. */
