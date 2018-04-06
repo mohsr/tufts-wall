@@ -62,7 +62,7 @@ app.get('/events', function(req, res) {
 /* Submit an event. */
 app.post('/submit', function(req, res) {
 	var event = {
-		"event": req.body.event
+		"event": req.body.event.replace(/[^\w\s]/gi, '')
 	}
 	db.collection('events', function(error, coll) {
 		coll.insert(event, function(error, saved) {
