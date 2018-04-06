@@ -20,9 +20,12 @@ app.use(express.static(__dirname + '/../client'));
  * Server routes to be implemented:
  * -- GET --
  * [X] Serve index.html
+ * [ ] Serve admin login
  * [ ] Get events and information, including files
  * -- POST --
- * [ ] Submit a PDF file
+ * [ ] Submit an event
+ * [ ] Admin - submit admin password
+ * [ ] Admin - remove an event
  */
 
 /* Get index.html. */
@@ -32,7 +35,7 @@ app.get('/', function(req, res) {
 
 /* Get information on events, including posters. */
 app.get('/events', function(req, res) {
-
+	res.send('[]')
 });
 
 /* Submit an event. */
