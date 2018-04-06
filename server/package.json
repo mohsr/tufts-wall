@@ -1,0 +1,10 @@
+{
+	"name": "comp20team3",
+	"version": "0.0.1",
+	"dependencies": {
+		"express": "latest",
+		"mongodb": "latest",
+		"body-parser": "latest",
+		"validator": "latest"
+	}
+}
