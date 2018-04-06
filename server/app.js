@@ -27,7 +27,8 @@ app.use(express.static(__dirname + '/../client'));
  * [ ] Get events and information, including files
  * -- POST --
  * [ ] Submit an event
- * [ ] Admin - submit admin password
+ * [ ] Remove an events
+ * [ ] Admin - login
  * [ ] Admin - remove an event
  */
 
