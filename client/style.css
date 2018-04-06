@@ -16,11 +16,17 @@ body {
 	*/
 }
 
+#out_car {
+	width: auto;
+	height: 650px;
+	overflow:hidden;
+    padding: 10px;
+}
+
 #carousel {
 	width: auto;
-	height: auto;
+	height: 700px;
 	/*background-color: white;*/
-	
 	overflow: auto;
 	white-space:nowrap;
 }
