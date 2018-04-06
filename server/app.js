@@ -7,11 +7,12 @@ var app = express();
 /* Require and configure MongoDB. */
 var mongoUri = process.env.MONGODB_URI  || 
                process.env.MONGOLAB_URI || 
-               process.env.MONGOHQ_URL;
-var MongoClient = require('mongodb').MongoClient;
-var format      = require('util').format;
-var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
-	db = databaseConnection;
+               process.env.MONGOHQ_URL  || 
+               'mongodb://localhost/comp20team3';
+var mongo  = require('mongodb').MongoClient;
+var format = require('util').format;
+var db = mongo.connect(mongoUri, function(error, dbconnection) {
+	db = dbconnection;
 });
 
 /* Set up app for use. */
@@ -44,7 +45,18 @@ app.get('/events', function(req, res) {
 
 /* Submit an event. */
 app.post('/submit', function(req, res) {
-
+	var event = {
+		"event": req.body.event
+	}
+	db.collection('events', function(error, coll) {
+		coll.insert(event, function(error, saved) {
+			if (error) {
+				res.send(500);
+			} else {
+				res.send("Thanks for your submission!");
+			}
+		});
+	});
 });
 
 /* Listen in on a port. */
