@@ -34,11 +34,31 @@ body {
 #carousel .slidetop {
 	display: inline-block;
 	overflow: hidden;
-	margin-bottom: 250px;
+	padding-left: 10px; 
+	padding-right: 10px;
 }
 
 #carousel .slidebottom {
 	display: inline-block;
 	overflow: hidden;
-	margin-top: 250px;
+	padding-left: 10px; 
+	padding-right: 10px; 
+}
+
+#carousel .eventtitle {
+font-size: 20px; 
+}
+
+p {
+	color: black; 
+}
+
+#carousel .info {
+background-color:#b3ccff;
+height: 15%;
+width: auto; 
+padding-left: 10px; 
+padding-right: 10px; 
+padding-top: 5%; 
+padding-bottom: 5%;  
 }
