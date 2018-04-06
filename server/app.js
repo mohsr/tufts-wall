@@ -25,9 +25,9 @@ app.use(express.static(__dirname + '/../client'));
  * -- GET --
  * [X] Serve index.html
  * [ ] Serve admin login
- * [ ] Get events and information, including files
+ * [X] Get events and information
  * -- POST --
- * [ ] Submit an event
+ * [-] Submit an event
  * [ ] Remove an events
  * [ ] Admin - login
  * [ ] Admin - remove an event
@@ -40,7 +40,15 @@ app.get('/', function(req, res) {
 
 /* Get information on events, including posters. */
 app.get('/events', function(req, res) {
-	res.send('[]')
+	db.collection('events', function(error, coll) {
+		coll.find().toArray(function(error, results) {
+			if (error) {
+				res.send("<!doctype HTML><html><head><title>Error</title></head><body><p>Error: couldn't retrieve data.</p></body></html>")
+			} else {
+				res.send(results);
+			}
+		});
+	});
 });
 
 /* Submit an event. */
