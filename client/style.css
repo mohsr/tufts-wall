@@ -18,17 +18,18 @@ body {
 
 #out_car {
 	width: auto;
-	height: 550px;
+	height: 690px;
 	overflow: hidden;
     	padding: 10px;
 }
 
 #carousel {
 	width: auto;
-	height: 600px;
+	height: 740px;
 	/*background-color: white;*/
 	overflow: auto;
 	white-space:nowrap;
+	padding-top: 20px;
 }
 
 #carousel .slidetop {
@@ -61,5 +62,7 @@ p {
 	padding-left: 10px; 
 	padding-right: 10px; 
 	padding-top: 1px; 
-	padding-bottom: 1px;  
+	padding-bottom: 1px;
+	border-style: solid;
+	border-color: white;
 }
