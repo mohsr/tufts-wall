@@ -1,8 +1,13 @@
 Week of 3/30 - 4/6
 
 Accomplishments this Week:
+	- Removed visible scroll wheel.
+	- Set up server and started working on APi roots.
 
 Challenges Faced:
+	- PDFs "wobble" when scrolled on, should be static.
+	- Posters cannot be scrolled through when mouse is on poster.
 
 Goals for Next Week:
 	- Adjust scrolling speed.
+	- Add specific submission page.
