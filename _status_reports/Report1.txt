@@ -18,3 +18,4 @@ Goals for Next Week:
 	- Add specific submission page.
 	- Work further on server routes.
 	- Work on admin page.
+	- Work on POST /submit security.
