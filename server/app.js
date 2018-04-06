@@ -43,7 +43,15 @@ app.get('/events', function(req, res) {
 	db.collection('events', function(error, coll) {
 		coll.find().toArray(function(error, results) {
 			if (error) {
-				res.send("<!doctype HTML><html><head><title>Error</title></head><body><p>Error: couldn't retrieve data.</p></body></html>")
+				res.send("<!doctype HTML>" +
+					     "<html>" + 
+					     "<head>" +
+					     	"<title>Error</title>" + 
+					     "</head>" + 
+					     "<body>" + 
+					     	"<p>Error: couldn't retrieve data.</p>" + 
+					     "</body>" + 
+					     "</html>")
 			} else {
 				res.send(results);
 			}
