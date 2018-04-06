@@ -18,14 +18,14 @@ body {
 
 #out_car {
 	width: auto;
-	height: 650px;
-	overflow:hidden;
-    padding: 10px;
+	height: 550px;
+	overflow: hidden;
+    	padding: 10px;
 }
 
 #carousel {
 	width: auto;
-	height: 700px;
+	height: 600px;
 	/*background-color: white;*/
 	overflow: auto;
 	white-space:nowrap;
@@ -56,10 +56,10 @@ p {
 
 #carousel .info {
 	background-color:#b3ccff;
-	height: 15%;
+	/*height: 10%;*/
 	width: auto; 
 	padding-left: 10px; 
 	padding-right: 10px; 
-	padding-top: 5%; 
-	padding-bottom: 5%;  
+	padding-top: 1px; 
+	padding-bottom: 1px;  
 }
