@@ -5,8 +5,11 @@ var validator  = require('validator');
 var app = express();
 
 /* Require and configure MongoDB. */
-var mongoUri = process.env.MONGODB_URI || process.env.MONGOLAB_URI || process.env.MONGOHQ_URL;
-var MongoClient = require('mongodb').MongoClient, format = require('util').format;
+var mongoUri = process.env.MONGODB_URI  || 
+               process.env.MONGOLAB_URI || 
+               process.env.MONGOHQ_URL;
+var MongoClient = require('mongodb').MongoClient;
+var format      = require('util').format;
 var db = MongoClient.connect(mongoUri, function(error, databaseConnection) {
 	db = databaseConnection;
 });
