@@ -18,7 +18,7 @@ var db = mongo.connect(mongoUri, function(error, dbconnection) {
 /* Set up app for use. */
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
-// app.use(express.static(__dirname + '/client'));
+app.use(express.static(__dirname + '/client'));
 
 // /* Set up AWS for image storage. */
 // var s3 = new aws.S3();
@@ -43,7 +43,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 
 /* Get index.html. */
 app.get('/', function(req, res) {
-	res.sendFile(__dirname + '/client/index.html');
+	res.sendFile('index.html');
 });
 
 /* Get information on events, including posters. */
