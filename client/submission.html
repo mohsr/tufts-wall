@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Submit Poster</title>
+	<link href="style.css" rel="stylesheet"/>
+	<script src=./js/jquery-3.3.1.min.js></script>
+</head>
+
+<body>
+<form action="/submission-accepted" method="post">
+    <div>
+        <label for="title">Title of Event:</label>
+        <input type="text" id="title" name="event_title">
+    </div>
+    <div>
+        <label for="startdate">Event Start Date:</label>
+        <input type="Date" id="startdate" name="event_startdate">
+    </div>
+    <div>
+        <label for="enddate">Event End Date:</label>
+        <input type="Date" name="enddate" name="event_enddate">
+    </div>
+    <div>
+		<label for="file">Choose file to upload</label>
+		<input type="file" id="file" name="file" accept=".pdf">
+	</div>
+    <div class="button">
+  		<button type="submit">Submit</button>
+	</div>
+</form>
+</body>
+</html>
