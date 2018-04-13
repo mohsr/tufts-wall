@@ -43,15 +43,7 @@ app.get('/events', function(req, res) {
 	db.collection('events', function(error, coll) {
 		coll.find().toArray(function(error, results) {
 			if (error) {
-				res.send("<!doctype HTML>" +
-					     "<html>" + 
-					     "<head>" +
-					     	"<title>Error</title>" + 
-					     "</head>" + 
-					     "<body>" + 
-					     	"<p>Error: couldn't retrieve data.</p>" + 
-					     "</body>" + 
-					     "</html>")
+				res.send(500);
 			} else {
 				res.send(results);
 			}
@@ -69,7 +61,7 @@ app.post('/submit', function(req, res) {
 			if (error) {
 				res.send(500);
 			} else {
-				res.send("Thanks for your submission!");
+				res.send(200);
 			}
 		});
 	});

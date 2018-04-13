@@ -5,6 +5,8 @@
 		"body-parser": "latest",
 		"express": "latest",
 		"validator": "latest",
-		"mongodb": "^2.2.33"
+		"mongodb": "^2.2.33",
+		"fs": "latest",
+		"formidable": "latest"
 	}
 }
