@@ -3,31 +3,56 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Submit Poster</title>
-	<link href="style.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src=./js/jquery-3.3.1.min.js></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-
 <body>
-<form action="/submission-accepted" method="post">
-    <div>
-        <label for="title">Title of Event:</label>
-        <input type="text" id="title" name="event_title">
-    </div>
-    <div>
-        <label for="startdate">Event Start Date:</label>
-        <input type="Date" id="startdate" name="event_startdate">
-    </div>
-    <div>
-        <label for="enddate">Event End Date:</label>
-        <input type="Date" name="enddate" name="event_enddate">
-    </div>
-    <div>
-		<label for="file">Choose file to upload</label>
-		<input type="file" id="file" name="file" accept=".pdf">
-	</div>
-    <div class="button">
-  		<button type="submit">Submit</button>
-	</div>
-</form>
+
+<!-- https://www.w3schools.com/bootstrap/bootstrap_modal.asp -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Submit Poster</button>
+
+<div id="myModal" class="modal fade" role="dialog">
+  	<div class="modal-dialog">
+	    <div class="modal-content">
+	      	<div class="modal-header">
+	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+	       	 	<h4 class="modal-title">Submit Poster</h4>
+	      	</div>
+	      	<div class="modal-body">
+	        	<div id="form">
+					<form action="/submission-accepted" method="post">
+					    <div>
+					        <label for="title">Title of Event:</label>
+					        <input type="text" id="title" name="event_title">
+					    </div>
+					    <div>
+					        <label for="startdate">Event Start Date:</label>
+					        <input type="Date" id="startdate" name="event_startdate">
+					    </div>
+					    <div>
+					        <label for="enddate">Event End Date:</label>
+					        <input type="Date" name="enddate" name="event_enddate">
+					    </div>
+					    <div>
+					        <label for="description">Description:</label>
+					        <textarea name="Text1" cols="40" rows="5" maxlength="300"></textarea>
+					    </div>
+					    <div>
+							<label for="file">Choose File to Upload:</label>
+							<input type="file" id="file" name="file" accept=".pdf">
+						</div>
+					    <div class="button">
+					  		<button type="submit">Submit</button>
+						</div>
+					</form>
+				</div>
+    		</div>
+    		<div class="modal-footer">
+       			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+    	</div>
+  	</div>
+</div>
 </body>
 </html>
