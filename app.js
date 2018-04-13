@@ -6,10 +6,9 @@ var aws        = require('aws-sdk');
 var app = express();
 
 /* Require and configure MongoDB. */
-var mongoUri = process.env.MONGODB_URI  || 
-               process.env.MONGOLAB_URI || 
-               process.env.MONGOHQ_URL  || 
-               'mongodb://localhost/comp20team3';
+var mongoUri = 'mongodb://' + 
+               process.env.DBUSER + ':' + process.env.DBPASS + 
+               '@ds227565.mlab.com:27565/tuftsevents'
 var mongo  = require('mongodb').MongoClient;
 var format = require('util').format;
 var db = mongo.connect(mongoUri, function(error, dbconnection) {
@@ -19,7 +18,7 @@ var db = mongo.connect(mongoUri, function(error, dbconnection) {
 /* Set up app for use. */
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/../client'));
+app.use(express.static(__dirname + './client'));
 
 /* Set up AWS for image storage. */
 var s3 = new aws.S3();
