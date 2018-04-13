@@ -2,6 +2,7 @@
 var express    = require('express');
 var bodyparser = require('body-parser');
 var validator  = require('validator');
+var aws        = require('aws-sdk');
 var app = express();
 
 /* Require and configure MongoDB. */
@@ -19,6 +20,14 @@ var db = mongo.connect(mongoUri, function(error, dbconnection) {
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/../client'));
+
+/* Set up AWS for image storage. */
+var s3 = new aws.S3();
+var bucket = new aws.S3({
+	params: {
+		Bucket: 'tuftswall'
+	}
+});
 
 /*
  * Server routes to be implemented:

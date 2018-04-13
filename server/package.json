@@ -2,11 +2,10 @@
 	"name": "comp20team3",
 	"version": "0.0.1",
 	"dependencies": {
+		"aws-sdk": "^2.224.1",
 		"body-parser": "latest",
 		"express": "latest",
-		"validator": "latest",
 		"mongodb": "^2.2.33",
-		"fs": "latest",
-		"formidable": "latest"
+		"validator": "latest"
 	}
 }
