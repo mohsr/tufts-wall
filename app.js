@@ -20,13 +20,13 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + './client/'));
 
-/* Set up AWS for image storage. */
-var s3 = new aws.S3();
-var bucket = new aws.S3({
-	params: {
-		Bucket: 'tuftswall'
-	}
-});
+// /* Set up AWS for image storage. */
+// var s3 = new aws.S3();
+// var bucket = new aws.S3({
+// 	params: {
+// 		Bucket: 'tuftswall'
+// 	}
+// });
 
 /*
  * Server routes to be implemented:
