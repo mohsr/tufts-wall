@@ -1,0 +1,13 @@
+Week of 4/6 - 4/13
+
+Accomplishments this Week:
+	- Added specific submission page.
+
+Challenges Faced:
+	- 
+
+Goals for Next Week:
+	- Adjust scrolling speed.
+	- Work further on server routes.
+	- Work on admin page.
+	- Implement data collection from submission page.
