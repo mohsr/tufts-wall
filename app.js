@@ -1,5 +1,6 @@
 /* Require server dependencies. */
 var express    = require('express');
+var path       = require('path');
 var bodyparser = require('body-parser');
 var validator  = require('validator');
 var aws        = require('aws-sdk');
