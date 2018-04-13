@@ -9,7 +9,7 @@ Challenges Faced:
 	- Resizing posters relative to page width.
 
 Goals for Next Week:
+	- Setup serverside and clientside code for poster upload.
 	- Adjust scrolling speed.
 	- Have posters be resized relative to page width.
-	- Finish up AWS integration.
 	- Work on admin page.

@@ -19,7 +19,6 @@ var db = mongo.connect(mongoUri, function(error, dbconnection) {
 /* Set up app for use. */
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
-// app.use(express.static(__dirname + '/client'));
 app.use(express.static(path.join(__dirname, 'client')));
 
 // /* Set up AWS for image storage. */
