@@ -4,10 +4,11 @@ Accomplishments this Week:
 	- Added specific submission page.
 
 Challenges Faced:
-	- 
+	- Resizing posters relative to page width.
 
 Goals for Next Week:
 	- Adjust scrolling speed.
 	- Work further on server routes.
 	- Work on admin page.
 	- Implement data collection from submission page.
+	- Have posters be resized relative to page width.
