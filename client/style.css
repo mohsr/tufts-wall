@@ -5,15 +5,20 @@ body {
 	background-color: orange;
 	background-size: cover;
 	color: white;
-	
-	/*
-	Reminders:
+}
 
+h1 {
 	text-align: center;
-	font-family: "Avenir Next";
-	font-size: 28px;
-	color: black;
-	*/
+	font-size: 32px;
+	font-family: "Courier";
+	line-height: 50%;
+}
+
+h2 {
+	text-align: center;
+	font-size: 24px;
+	font-family: "Courier";
+	line-height: 50%;
 }
 
 #out_car {
@@ -48,7 +53,7 @@ body {
 }
 
 #carousel .eventtitle {
-font-size: 20px; 
+	font-size: 20px; 
 }
 
 p {
