@@ -22,3 +22,6 @@ Goals for Next Week:
 	- Work further on server routes.
 	- Work on admin page.
 	- Work on POST /submit security.
+
+# Comments by Ming
+* "Different browsers handle PDFs differently." => Yes, sadly. I can understand the problem.  Here's an idea: what if you take a PNG or JPG of first page of PDF and use that instead of PDF?  https://stackoverflow.com/questions/653380/converting-a-pdf-to-png
