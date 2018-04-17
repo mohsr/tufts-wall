@@ -63,8 +63,8 @@ app.get('/events', function(req, res) {
 });
 
 /* AWS testing. */
-app.get(__dirname + 'client/submit', function(req, res) {
-	res.sendFile('awstest.html');
+app.get('/submit', function(req, res) {
+	res.sendFile(__dirname + 'client/awstest.html');
 });
 
 app.get('/storage-get', function(req, res) {
