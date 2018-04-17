@@ -15,6 +15,7 @@
 		}
 
 		function getSignedRequest(file) {
+			console.log("getting signed request");
 			const xhr = new XMLHttpRequest();
 			xhr.open('GET', ('/storage-get?fname=' + file.name + '&ftype=' + file.type));
 			xhr.onreadystatechange = function() {
@@ -31,6 +32,7 @@
 		}
 
 		function upload(file, signed, url) {
+			console.log("uploading");
 			const xhr = new XMLHttpRequest();
 			xhr.open('PUT', signed);
 			xhr.onreadystatechange = function() {
@@ -45,12 +47,10 @@
 			};
 			xhr.send(file);
 		}
-
-		submit();
 	</script>
 </head>
 <body>
-	<input type="file" id="file-upload">
+	<input type="file" id="file-input">
 	<p id="upload-status">Please upload a file.</p>
 	<img id="preview" src="/images/default.png">
 
