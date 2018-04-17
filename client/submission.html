@@ -33,14 +33,6 @@
 		function upload(file, signed, url) {
 			const xhr = new XMLHttpRequest();
 			xhr.open('PUT', signed);
-			xhr.onreadystatechange = function() {
-				if (xhr.readyState === 4) {
-					if (xhr.status === 200) {
-						document.getElementById('preview').src = url;
-						document.getElementById('avatar-url').value = url;
-					}
-				}
-			};
 			xhr.send(file);
 		}
 	</script>
@@ -78,7 +70,7 @@
 					    </div>
 					    <div>
 							<label for="file">Choose non-PDF Image File to Upload:</label>
-							<input type="file" id="file" name="file" onchange="submit()">
+							<input type="file" id="file-input" name="file" onchange="submit()">
 						</div>
 					    <div class="button">
 					  		<button type="submit">Submit</button>
