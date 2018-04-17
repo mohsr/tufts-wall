@@ -9,8 +9,9 @@
 			const file = document.getElementById('file-input').files[0];
 			if (file == null) {
 				return ("No file selected");
+			} else {
+				getSignedRequest(file);
 			}
-			getSignedRequest(file);
 		}
 
 		function getSignedRequest(file) {
@@ -49,9 +50,9 @@
 	</script>
 </head>
 <body>
-	<input type="file" id="file-input" onchange="submit()">
+	<input type="file" id="file-input" onchange="submit()" />
 	<p id="upload-status">Please upload a file.</p>
-	<img id="preview" src="/images/default.png">
+	<img id="preview" src="/images/default.png" />
 
 	<form method="POST" action="/storage-submit">
 		<input type="hidden" id="avatar-url" name="avatar-url" value="/images/default.png">
