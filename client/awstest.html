@@ -5,13 +5,12 @@
 	<meta charset="utf-8"/>
 	<script>
 		function submit() {
-			document.getElementById('file-input').onchange = function() {
-				const file = document.getElementById('file-input').files[0];
-				if (file == null) {
-					return ("No file selected");
-				}
-				getSignedRequest(file);
-			};
+			console.log("submitting");
+			const file = document.getElementById('file-input').files[0];
+			if (file == null) {
+				return ("No file selected");
+			}
+			getSignedRequest(file);
 		}
 
 		function getSignedRequest(file) {
@@ -50,7 +49,7 @@
 	</script>
 </head>
 <body>
-	<input type="file" id="file-input">
+	<input type="file" id="file-input" onchange="submit()">
 	<p id="upload-status">Please upload a file.</p>
 	<img id="preview" src="/images/default.png">
 
