@@ -87,6 +87,7 @@ app.get('/storage-get', function(req, res) {
 				signedRequest: data,
 				url: ('https://' + bucket + '.s3.amazonaws.com/' + fname)
 			};
+			res.header("Content-Type", "application/json");
 			res.write(JSON.stringify(returned));
 			res.end();
 		}

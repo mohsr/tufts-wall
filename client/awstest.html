@@ -5,7 +5,6 @@
 	<meta charset="utf-8"/>
 	<script>
 		function submit() {
-			console.log("submitting");
 			const file = document.getElementById('file-input').files[0];
 			if (file == null) {
 				return ("No file selected");
@@ -15,16 +14,14 @@
 		}
 
 		function getSignedRequest(file) {
-			console.log("getting signed request");
 			const xhr = new XMLHttpRequest();
 			xhr.open('GET', ('/storage-get?fname=' + file.name + '&ftype=' + file.type));
 			xhr.onreadystatechange = function() {
 				if (xhr.readyState === 4) {
 					if (xhr.status === 200) {
 						const response = JSON.parse(xhr.responseText);
+						console.log(response);
 						upload(file, response.signedRequest, response.url);
-					} else {
-						console.log("woops1");
 					}
 				}
 			};
