@@ -6,6 +6,44 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src=./js/jquery-3.3.1.min.js></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		function submit() {
+			const file = document.getElementById('file-input').files[0];
+			if (file == null) {
+				return ("No file selected");
+			} else {
+				getSignedRequest(file);
+			}
+		}
+
+		function getSignedRequest(file) {
+			const xhr = new XMLHttpRequest();
+			xhr.open('GET', ('/storage-get?fname=' + file.name + '&ftype=' + file.type));
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4) {
+					if (xhr.status === 200) {
+						const response = JSON.parse(xhr.responseText);
+						upload(file, response.signedRequest, response.url);
+					}
+				}
+			};
+			xhr.send();
+		}
+
+		function upload(file, signed, url) {
+			const xhr = new XMLHttpRequest();
+			xhr.open('PUT', signed);
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4) {
+					if (xhr.status === 200) {
+						document.getElementById('preview').src = url;
+						document.getElementById('avatar-url').value = url;
+					}
+				}
+			};
+			xhr.send(file);
+		}
+	</script>
 </head>
 <body>
 
@@ -39,8 +77,8 @@
 					        <textarea name="Text1" cols="40" rows="5" maxlength="300"></textarea>
 					    </div>
 					    <div>
-							<label for="file">Choose File to Upload:</label>
-							<input type="file" id="file" name="file" accept=".pdf">
+							<label for="file">Choose non-PDF Image File to Upload:</label>
+							<input type="file" id="file" name="file" onchange="submit()">
 						</div>
 					    <div class="button">
 					  		<button type="submit">Submit</button>

@@ -23,14 +23,6 @@ app.use(express.static(path.join(__dirname, 'client')));
 
 var bucket = process.env.S3_BUCKET;
 
-// /* Set up AWS for image storage. */
-// var s3 = new aws.S3();
-// var bucket = new aws.S3({
-// 	params: {
-// 		Bucket: 'tuftswall'
-// 	}
-// });
-
 /*
  * Server routes to be implemented:
  * -- GET --
@@ -62,12 +54,14 @@ app.get('/events', function(req, res) {
 	});
 });
 
-/* AWS testing. */
+/* Event submission page. */
 app.get('/submit', function(req, res) {
-	res.sendFile(__dirname + '/client/awstest.html');
+	res.sendFile(__dirname + '/client/submission.html');
 });
 
+/* Get a signed URL for image submission. */
 app.get('/storage-get', function(req, res) {
+	/* Create the parameters. */
 	const s3 = new aws.S3();
 	const fname = req.query.fname;
 	const ftype = req.query.ftype;
@@ -79,6 +73,7 @@ app.get('/storage-get', function(req, res) {
 		ACL: 'public-read'
 	};
 
+	/* Get an AWS S3 signed URL for the client to upload to. */
 	s3.getSignedUrl('putObject', s3params, function(error, data) {
 		if (error) {
 			res.send(500);
