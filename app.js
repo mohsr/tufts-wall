@@ -64,7 +64,7 @@ app.get('/events', function(req, res) {
 
 /* AWS testing. */
 app.get('/submit', function(req, res) {
-	res.sendFile('submitformtest.html');
+	res.sendFile('awstest.html');
 });
 
 app.get('/storage-get', function(req, res) {
