@@ -62,26 +62,9 @@ app.get('/events', function(req, res) {
 	});
 });
 
-/* Submit an event. */
-// app.post('/submittt', function(req, res) {
-// 	var event = {
-// 		"event": req.body.event
-// 	}
-// 	db.collection('events', function(error, coll) {
-// 		coll.insert(event, function(error, saved) {
-// 			if (error) {
-// 				res.send(500);
-// 			} else {
-// 				res.send(200);
-// 			}
-// 		});
-// 	});
-// });
-
 /* AWS testing. */
 app.get('/submit', function(req, res) {
-	// res.sendFile('submitformtest.html');
-	res.send("lol");
+	res.sendFile('submitformtest.html');
 });
 
 app.get('/storage-get', function(req, res) {
