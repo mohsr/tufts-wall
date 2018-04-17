@@ -63,7 +63,7 @@ app.get('/events', function(req, res) {
 });
 
 /* Submit an event. */
-// app.post('/submit', function(req, res) {
+// app.post('/submittt', function(req, res) {
 // 	var event = {
 // 		"event": req.body.event
 // 	}
@@ -80,7 +80,8 @@ app.get('/events', function(req, res) {
 
 /* AWS testing. */
 app.get('/submit', function(req, res) {
-	res.sendFile('submitformtest.html');
+	// res.sendFile('submitformtest.html');
+	res.send("lol");
 });
 
 app.get('/storage-get', function(req, res) {
