@@ -51,6 +51,9 @@
 	      	</div>
 	      	<div class="modal-body">
 	        	<div id="form">
+					<p>Please select a non-PDF image file.</p>
+					<input type="file" id="file-input" />
+					<button type="button" onclick="submit()">Submit image</button>
 					<form method="POST" action="/storage-submit">
 					    <div>
 					        <label for="title">Title of Event:</label>
@@ -69,11 +72,9 @@
 					        <textarea name="Text1" cols="40" rows="5" maxlength="300"></textarea>
 					    </div>
 					    <div class="button">
-					  		<button type="submit" onclick="submit()">Submit</button>
+					  		<button type="submit">Submit</button>
 						</div>
 					</form>
-					<p>Please select a non-PDF image file.</p>
-					<input type="file" id="file-input" />
 				</div>
     		</div>
     		<div class="modal-footer">
