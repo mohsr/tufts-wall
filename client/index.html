@@ -3,13 +3,112 @@
 <head>
 	<meta charset="utf-8" />
 	<title>The Wall</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<link href="style.css" rel="stylesheet"/>
 	<script src=./js/jquery-3.3.1.min.js></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<meta name="MobileOptimized" content="640">
 </head>
 
+<script>
+		function thanks() {
+			var element = document.getElementById("form");
+			element.innerHTML = "Thank you for your submission!";
+			submit();
+		}
+
+		function submit() {
+			const file = document.getElementById('file-input').files[0];
+			if (file == null) {
+				return ("No file selected");
+			} else {
+				getSignedRequest(file);
+			}
+		}
+
+		function getSignedRequest(file) {
+			const xhr = new XMLHttpRequest();
+			xhr.open('GET', ('/storage-get?fname=' + file.name + '&ftype=' + file.type));
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4) {
+					if (xhr.status === 200) {
+						const response = JSON.parse(xhr.responseText);
+						upload(file, response.signedRequest, response.url);
+					}
+				}
+			};
+			xhr.send();
+		}
+
+		function upload(file, signed, url) {
+			const xhr = new XMLHttpRequest();
+			xhr.open('PUT', signed);
+			xhr.send(file);
+
+			$("#submission-form").submit(function obj() {
+				var theurl = $('#urldata');
+				if (theurl.length) {
+					theurl.attr('value', url);
+				} else {
+					var addto = $('<input />');
+					addto.attr('type', 'hidden');
+					addto.attr('id', 'urldata')
+					addto.attr('name', 'url');
+					addto.attr('value', url);
+					addto.appendTo('#submission-form');
+				}
+				return true;
+			});
+		}
+</script>
+
 <body>
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Submit Poster</button>
+
+<div id="myModal" class="modal fade" role="dialog">
+  	<div class="modal-dialog">
+	    <div class="modal-content">
+	      	<div class="modal-header">
+	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+	       	 	<h4 class="modal-title">Submit Poster</h4>
+	      	</div>
+	      	<div class="modal-body">
+	        	<div id="form">
+					<p>Please select a non-PDF image file. Please include the name of the event in the 
+					filename to make it as unique as possible!</p>
+					<input type="file" id="file-input" />
+					<form id="submission-form" method="POST">
+					    <div>
+					        <label for="title">Title of Event:</label>
+					        <input type="text" id="title" name="event_title">
+					    </div>
+					    <div>
+					        <label for="startdate">Event Start Date:</label>
+					        <input type="Date" id="startdate" name="event_startdate">
+					    </div>
+					    <div>
+					        <label for="enddate">Event End Date:</label>
+					        <input type="Date" name="enddate" name="event_enddate">
+					    </div>
+					    <div>
+					        <label for="description">Description:</label>
+					        <textarea name="Text1" cols="40" rows="5" maxlength="300"></textarea>
+					    </div>
+					    <div class="button">
+					  		<button type="button" onclick="thanks()">Submit</button>
+						</div>
+					</form>
+				</div>
+    		</div>
+    		<div class="modal-footer">
+       			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+    	</div>
+  	</div>
+</div>
+
 <h1>Welcome to The Wall</h1>
 <h2>Your source for all current Tufts events</h2>
 <div id= "out_car">
