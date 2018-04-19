@@ -70,9 +70,8 @@ app.get('/storage-get', function(req, res) {
 			var arr = collection.find().toArray();
 			while (arr.indexOf(bytes) === -1) {
 				bytes = crypto.randomBytes(12).toString('hex');
-			} else {
-				collection.insert({id: bytes});
 			}
+			collection.insert({id: bytes});
 		}
 	});
 	/* Create the parameters with a "salted" filename for uniqueness. */
