@@ -36,11 +36,17 @@
 			xhr.send(file);
 
 			$("#submission-form").submit(function obj() {
-				var addto = $('<input />');
-				addto.attr('type', 'hidden');
-				addto.attr('name', 'url');
-				addto.attr('value', url);
-				addto.appendTo('#submission-form');
+				var theurl = $('#urldata');
+				if (theurl.length) {
+					theurl.attr('value', url);
+				} else {
+					var addto = $('<input />');
+					addto.attr('type', 'hidden');
+					addto.attr('id', 'urldata')
+					addto.attr('name', 'url');
+					addto.attr('value', url);
+					addto.appendTo('#submission-form');
+				}
 				return true;
 			});
 		}
@@ -83,10 +89,6 @@
 					    <div class="button">
 					  		<button type="submit">Submit</button>
 						</div>
-						<!-- <div>
-							<label for="imageupload">Please select a non-PDF image file.</label>
-							<input type="file" id="file-input" onchange="submit()" />
-						</div> -->
 					</form>
 				</div>
     		</div>
