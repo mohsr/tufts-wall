@@ -89,8 +89,34 @@ app.get('/storage-get', function(req, res) {
 	});
 });
 
+/* Submit the event data to MongoDB. */
 app.post('/storage-submit', function(req, res) {
-	res.send(req.body);
+	var ev_title = req.body.event_title;
+	var ev_start = req.body.event_startdate;
+	var ev_end   = req.body.enddate;
+	var ev_text  = req.body.Text1;
+	var ev_url   = req.body.url;
+
+	if (title == null || start == null || end == null || text == null || url == null) {
+		res.send(500);
+	} else {
+		var data = {
+			title: ev_title,
+			start: ev_start,
+			end:   ev_end,
+			text:  ev_text,
+			url:   ev_url
+		}
+		db.collection('events', function(error, collection) {
+			collection.update({title: ev_title}, data, {upsert: true}, function(error, results) {
+				if (error) {
+					res.send(500);
+				} else {
+					res.send(200);
+				}
+			});
+		});
+	}
 });
 
 /* Listen in on a port. */
