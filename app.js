@@ -90,7 +90,7 @@ app.get('/storage-get', function(req, res) {
 });
 
 app.post('/storage-submit', function(req, res) {
-	res.send('to be done');
+	res.send(req.body);
 });
 
 /* Listen in on a port. */
