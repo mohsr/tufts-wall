@@ -1,6 +1,7 @@
 /* Require server dependencies. */
 var express    = require('express');
 var path       = require('path');
+var crypto     = require('crypto');
 var bodyparser = require('body-parser');
 var validator  = require('validator');
 var aws        = require('aws-sdk');
@@ -20,7 +21,6 @@ var db = mongo.connect(mongoUri, function(error, dbconnection) {
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'client')));
-
 var bucket = process.env.S3_BUCKET;
 
 /*
@@ -61,9 +61,23 @@ app.get('/submit', function(req, res) {
 
 /* Get a signed URL for image submission. */
 app.get('/storage-get', function(req, res) {
-	/* Create the parameters. */
+	/* Get an unused random array of hex chars. */
+	var bytes = crypto.randomBytes(12).toString('hex');
+	db.collection('ids', function(error, collection) {
+		if (error) {
+			return;
+		} else {
+			var arr = collection.find().toArray();
+			while (arr.indexOf(bytes) === -1) {
+				bytes = crypto.randomBytes(12).toString('hex');
+			} else {
+				collection.insert({id: bytes});
+			}
+		}
+	});
+	/* Create the parameters with a "salted" filename for uniqueness. */
 	const s3 = new aws.S3();
-	const fname = req.query.fname;
+	const fname = bytes + req.query.fname;
 	const ftype = req.query.ftype;
 	const s3params = {
 		Bucket: bucket,
