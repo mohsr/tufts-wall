@@ -12,12 +12,6 @@
 </head>
 
 <script>
-		function thanks() {
-			var element = document.getElementById("form");
-			// element.innerHTML = "Thank you for your submission!";
-			submit();
-		}
-
 		function submit() {
 			const file = document.getElementById('file-input').files[0];
 			if (file == null) {
@@ -45,7 +39,12 @@
 			const xhr = new XMLHttpRequest();
 			xhr.open('PUT', signed);
 			xhr.send(file);
-			console.log("sendingaaaa");
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					var element = document.getElementById("form");
+					element.innerHTML = "Thank you for your submission!";
+				}
+			}
 
 			$("#submission-form").submit(function obj() {
 				var theurl = $('#urldata');
@@ -97,7 +96,7 @@
 					        <textarea name="Text1" cols="40" rows="5" maxlength="300"></textarea>
 					    </div>
 					    <div class="button">
-					  		<button type="button" onclick="thanks()">Submit</button>
+					  		<button type="button" onclick="submit()">Submit</button>
 						</div>
 					</form>
 				</div>
