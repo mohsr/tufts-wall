@@ -12,6 +12,12 @@
 </head>
 
 <script>
+		function thanks() {
+			var element = document.getElementById("form");
+			// element.innerHTML = "Thank you for your submission!";
+			submit();
+		}
+
 		function submit() {
 			const file = document.getElementById('file-input').files[0];
 			if (file == null) {
@@ -33,10 +39,14 @@
 				}
 			};
 			xhr.send();
-			console.log("A");
 		}
 
 		function upload(file, signed, url) {
+			const xhr = new XMLHttpRequest();
+			xhr.open('PUT', signed);
+			xhr.send(file);
+			console.log("sendingaaaa");
+
 			$("#submission-form").submit(function obj() {
 				var theurl = $('#urldata');
 				if (theurl.length) {
@@ -48,20 +58,9 @@
 					addto.attr('name', 'url');
 					addto.attr('value', url);
 					addto.appendTo('#submission-form');
-					console.log("woo");
 				}
 				return true;
 			});
-
-			const xhr = new XMLHttpRequest();
-			xhr.open('PUT', signed);
-			xhr.onreadystatechange = function() {
-				if (xhr.readyState === 4 && xhr.status === 200) {
-					var element = document.getElementById("form");
-					element.innerHTML = "Thank you for your submission!";
-				}
-			}
-			xhr.send(file);
 		}
 </script>
 
@@ -80,7 +79,7 @@
 	        	<div id="form">
 					<p>Please select a non-PDF image for your event.</p>
 					<input type="file" id="file-input" />
-					<form id="submission-form" method="POST" action="/storage-submit">
+					<form id="submission-form" method="POST">
 					    <div>
 					        <label for="title">Title of Event:</label>
 					        <input type="text" id="title" name="event_title">
@@ -91,14 +90,14 @@
 					    </div>
 					    <div>
 					        <label for="enddate">Event End Date:</label>
-					        <input type="Date" id="enddate" name="event_enddate">
+					        <input type="Date" name="enddate" name="event_enddate">
 					    </div>
 					    <div>
 					        <label for="description">Description:</label>
 					        <textarea name="Text1" cols="40" rows="5" maxlength="300"></textarea>
 					    </div>
 					    <div class="button">
-					  		<button type="button" onclick="submit()">Submit</button>
+					  		<button type="button" onclick="thanks()">Submit</button>
 						</div>
 					</form>
 				</div>

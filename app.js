@@ -112,7 +112,7 @@ app.post('/storage-submit', function(req, res) {
 
 	if (ev_title == null || ev_start == null || ev_end == null || ev_text == null || ev_url == null) {
 		// res.sendStatus(500);
-		// res.send(req.body);
+		res.send(req.body);
 		return;
 	} else {
 		var data = {
