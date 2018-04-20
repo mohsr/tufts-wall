@@ -49,6 +49,7 @@
 			var params = 'event_title=' + title + '&event_startdate=' + start + 
 			             '&event_enddate=' + end + '&Text1=' + text1 + 
 			             '&url=' + url;
+			console.log(params);
 			poster.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 			poster.send(params);
 
