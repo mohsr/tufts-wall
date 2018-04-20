@@ -12,6 +12,10 @@
 </head>
 
 <script>
+		function thanks() {
+			submit();
+		}
+
 		function submit() {
 			const file = document.getElementById('file-input').files[0];
 			if (file == null) {
@@ -43,9 +47,9 @@
 			const poster = new XMLHttpRequest();
 			poster.open('POST', '/storage-submit');
 			var title = $('#title').val();
-			var start = $('#startdate').val();
-			var end   = $('#enddate').val();
-			var text1 = $('#textfield').val();
+			var start = $('startdate').val();
+			var end   = $('enddate').val();
+			var text1 = $('Text1').val();
 			var params = 'event_title=' + title + '&event_startdate=' + start + 
 			             '&event_enddate=' + end + '&Text1=' + text1 + 
 			             '&url=' + url;
@@ -73,7 +77,7 @@
 	        	<div id="form">
 					<p>Please select a non-PDF image file.</p>
 					<input type="file" id="file-input" />
-					<form id="submission-form" method="POST">
+					<form id="submission-form">
 					    <div>
 					        <label for="title">Title of Event:</label>
 					        <input type="text" id="title" name="event_title">
@@ -88,10 +92,10 @@
 					    </div>
 					    <div>
 					        <label for="description">Description:</label>
-					        <textarea id="textfield" name="Text1" cols="40" rows="5" maxlength="300"></textarea>
+					        <textarea id="Text1" name="Text1" cols="40" rows="5" maxlength="300"></textarea>
 					    </div>
 					    <div class="button">
-					  		<button type="button" onclick="submit()">Submit</button>
+					  		<button type="button" onclick="thanks()">Submit</button>
 						</div>
 					</form>
 				</div>
