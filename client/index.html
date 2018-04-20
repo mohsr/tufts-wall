@@ -38,12 +38,12 @@
 		function upload(file, signed, url) {
 			const xhr = new XMLHttpRequest();
 			xhr.open('PUT', signed);
-			xhr.onreadystatechange = function() {
-				// if (xhr.readyState === 4 && xhr.status === 200) {
-				// 	var element = document.getElementById("form");
-				// 	element.innerHTML = "Thank you for your submission!";
-				// }
-			}
+			// xhr.onreadystatechange = function() {
+			// 	if (xhr.readyState === 4 && xhr.status === 200) {
+			// 		var element = document.getElementById("form");
+			// 		element.innerHTML = "Thank you for your submission!";
+			// 	}
+			// }
 			xhr.send(file);
 
 			$("#submission-form").submit(function obj() {
