@@ -10,8 +10,10 @@ Accomplishments this Week:
 	  database and store image URLs.
 
 Challenges Faced:
-	- Initially figuring out how to upload images to AWS S3
+	- Initially figuring out how to upload images to AWS S3.
+	- Getting HTTP POST to work with the form data for even submission.
 
 Goals for Next Week:
 	- Address further server-side needs before working on admin page.
 	- Finally begin working on admin page.
+	- Dynamically fill login page with data from MongoDB and AWS S3.
