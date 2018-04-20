@@ -46,7 +46,7 @@ app.get('/events', function(req, res) {
 	db.collection('events', function(error, coll) {
 		coll.find().toArray(function(error, results) {
 			if (error) {
-				res.send(500);
+				res.sendStatus(500);
 			} else {
 				res.send(results);
 			}
@@ -89,7 +89,7 @@ app.get('/storage-get', function(req, res) {
 	/* Get an AWS S3 signed URL for the client to upload to. */
 	s3.getSignedUrl('putObject', s3params, function(error, data) {
 		if (error) {
-			res.send(500);
+			res.sendStatus(500);
 		} else {
 			const returned = {
 				signedRequest: data,
@@ -111,7 +111,7 @@ app.post('/storage-submit', function(req, res) {
 	var ev_url   = req.body.url;
 
 	if (ev_title == null || ev_start == null || ev_end == null || ev_text == null || ev_url == null) {
-		res.send(500);
+		res.sendStatus(500);
 	} else {
 		var data = {
 			title: ev_title,
@@ -123,9 +123,9 @@ app.post('/storage-submit', function(req, res) {
 		db.collection('events', function(error, collection) {
 			collection.update({title: ev_title}, data, {upsert: true}, function(error, results) {
 				if (error) {
-					res.send(500);
+					res.sendStatus(500);
 				} else {
-					res.send(200);
+					res.sendStatus(200);
 				}
 			});
 		});
