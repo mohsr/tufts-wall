@@ -13,8 +13,6 @@
 
 <script>
 		function thanks() {
-			var element = document.getElementById("form");
-			// element.innerHTML = "Thank you for your submission!";
 			submit();
 		}
 
@@ -46,25 +44,36 @@
 			xhr.open('PUT', signed);
 			xhr.send(file);
 
-			$("#submission-form").submit(function obj() {
-				$(this).append('<input type="hidden" id="urldata" name="url" value="' + url + '">');
-				// var theurl = $('#urldata');
-				// if (theurl.length) {
-				// 	console.log("a");
-				// 	theurl.attr('value', url);
-				// } else {
-				// 	console.log("b");
-				// 	var addto = $('<input />');
-				// 	addto.attr('type', 'hidden');
-				// 	addto.attr('id', 'urldata')
-				// 	addto.attr('name', 'url');
-				// 	addto.attr('value', url);
-				// 	addto.appendTo('#submission-form');
-				// }
-				return false;
-			});
+			const poster = new XMLHttpRequest();
+			poster.open('POST', '/storage-submit');
+			var title = $('#title').val();
+			var start = $('startdate').val();
+			var end   = $('enddate').val();
+			var text1 = $('Text1').val();
+			var params = 'event_title=' + title + '&event_startdate=' + start + 
+			             '&event_enddate=' + end + '&Text1=' + text1 + 
+			             '&url=' + url;
+			poster.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			poster.send(params);
 
-			console.log($("#submission-form"));
+			
+			var element = document.getElementById("form");
+			element.innerHTML = "Thank you for your submission!";
+
+			// $("#submission-form").submit(function obj() {
+			// 	var theurl = $('#urldata');
+			// 	if (theurl.length) {
+			// 		theurl.attr('value', url);
+			// 	} else {
+			// 		var addto = $('<input />');
+			// 		addto.attr('type', 'hidden');
+			// 		addto.attr('id', 'urldata')
+			// 		addto.attr('name', 'url');
+			// 		addto.attr('value', url);
+			// 		addto.appendTo('#submission-form');
+			// 	}
+			// 	return true;
+			// });
 		}
 </script>
 
@@ -81,9 +90,10 @@
 	      	</div>
 	      	<div class="modal-body">
 	        	<div id="form">
-					<p>Please select a non-PDF image for your event.</p>
+					<p>Please select a non-PDF image file. Please include the name of the event in the 
+					filename to make it as unique as possible!</p>
 					<input type="file" id="file-input" />
-					<form id="submission-form" method="POST" action="/storage-submit">
+					<form id="submission-form" method="POST">
 					    <div>
 					        <label for="title">Title of Event:</label>
 					        <input type="text" id="title" name="event_title">
@@ -98,10 +108,10 @@
 					    </div>
 					    <div>
 					        <label for="description">Description:</label>
-					        <textarea name="Text1" cols="40" rows="5" maxlength="300"></textarea>
+					        <textarea id="Text1" name="Text1" cols="40" rows="5" maxlength="300"></textarea>
 					    </div>
 					    <div class="button">
-					  		<button type="submit" onclick="thanks()">Submit</button>
+					  		<button type="button" onclick="thanks()">Submit</button>
 						</div>
 					</form>
 				</div>
