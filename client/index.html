@@ -45,7 +45,6 @@
 			const xhr = new XMLHttpRequest();
 			xhr.open('PUT', signed);
 			xhr.send(file);
-			console.log("sendingaaaa");
 
 			$("#submission-form").submit(function obj() {
 				var theurl = $('#urldata');
@@ -61,6 +60,8 @@
 				}
 				return true;
 			});
+
+			console.log($("#submission-form"));
 		}
 </script>
 
