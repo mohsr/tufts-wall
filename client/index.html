@@ -33,6 +33,7 @@
 				}
 			};
 			xhr.send();
+			console.log("A");
 		}
 
 		function upload(file, signed, url) {
@@ -51,7 +52,7 @@
 				}
 				return true;
 			});
-			
+
 			const xhr = new XMLHttpRequest();
 			xhr.open('PUT', signed);
 			xhr.onreadystatechange = function() {
