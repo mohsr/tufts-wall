@@ -6,8 +6,10 @@ Accomplishments this Week:
 	  images directly to AWS S3.
 	- Set up feature to add random text to AWS S3 file URLs to guarantee 
 	  uniqueness of each poster.
+	- Added submission form modal to main page.
 	- Finished submission form functionality to submit data to MongoDB 
 	  database and store image URLs.
+	- Submission form displays "thank you" message upon submission.
 
 Challenges Faced:
 	- Initially figuring out how to upload images to AWS S3.
