@@ -39,10 +39,10 @@
 			const xhr = new XMLHttpRequest();
 			xhr.open('PUT', signed);
 			xhr.onreadystatechange = function() {
-				if (xhr.readyState === 4 && xhr.status === 200) {
-					var element = document.getElementById("form");
-					element.innerHTML = "Thank you for your submission!";
-				}
+				// if (xhr.readyState === 4 && xhr.status === 200) {
+				// 	var element = document.getElementById("form");
+				// 	element.innerHTML = "Thank you for your submission!";
+				// }
 			}
 			xhr.send(file);
 
@@ -57,6 +57,7 @@
 					addto.attr('name', 'url');
 					addto.attr('value', url);
 					addto.appendTo('#submission-form');
+					console.log("woo");
 				}
 				return true;
 			});

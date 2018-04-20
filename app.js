@@ -111,8 +111,7 @@ app.post('/storage-submit', function(req, res) {
 	var ev_url   = req.body.url;
 
 	if (ev_title == null || ev_start == null || ev_end == null || ev_text == null || ev_url == null) {
-		res.send(req.body);
-		// res.sendStatus(500);
+		res.sendStatus(500);
 	} else {
 		var data = {
 			title: ev_title,
