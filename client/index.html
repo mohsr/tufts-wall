@@ -47,19 +47,20 @@
 			xhr.send(file);
 
 			$("#submission-form").submit(function obj() {
-				var theurl = $('#urldata');
-				if (theurl.length) {
-					console.log("a");
-					theurl.attr('value', url);
-				} else {
-					console.log("b");
-					var addto = $('<input />');
-					addto.attr('type', 'hidden');
-					addto.attr('id', 'urldata')
-					addto.attr('name', 'url');
-					addto.attr('value', url);
-					addto.appendTo('#submission-form');
-				}
+				$(this).append('<input type="hidden" id="urldata" name="url" value="' + url + '">');
+				// var theurl = $('#urldata');
+				// if (theurl.length) {
+				// 	console.log("a");
+				// 	theurl.attr('value', url);
+				// } else {
+				// 	console.log("b");
+				// 	var addto = $('<input />');
+				// 	addto.attr('type', 'hidden');
+				// 	addto.attr('id', 'urldata')
+				// 	addto.attr('name', 'url');
+				// 	addto.attr('value', url);
+				// 	addto.appendTo('#submission-form');
+				// }
 				return true;
 			});
 
