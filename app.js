@@ -106,11 +106,11 @@ app.get('/storage-get', function(req, res) {
 app.post('/storage-submit', function(req, res) {
 	var ev_title = req.body.event_title;
 	var ev_start = req.body.event_startdate;
-	var ev_end   = req.body.enddate;
+	var ev_end   = req.body.event_enddate;
 	var ev_text  = req.body.Text1;
 	var ev_url   = req.body.url;
 
-	if (title == null || start == null || end == null || text == null || url == null) {
+	if (ev_title == null || ev_start == null || ev_end == null || ev_text == null || ev_url == null) {
 		res.send(500);
 	} else {
 		var data = {
