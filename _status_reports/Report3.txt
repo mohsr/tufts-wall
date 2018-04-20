@@ -1,0 +1,17 @@
+Week of 4/14 - 4/21
+
+Accomplishments this Week:
+	- Set up AWS S3 bucket for poster storage.
+	- Set up server-side and client-side code to generate signed URL to upload 
+	  images directly to AWS S3.
+	- Set up feature to add random text to AWS S3 file URLs to guarantee 
+	  uniqueness of each poster.
+	- Finished submission form functionality to submit data to MongoDB 
+	  database and store image URLs.
+
+Challenges Faced:
+	- Initially figuring out how to upload images to AWS S3
+
+Goals for Next Week:
+	- Address further server-side needs before working on admin page.
+	- Finally begin working on admin page.
