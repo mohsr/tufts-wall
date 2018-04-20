@@ -12,7 +12,7 @@
 </head>
 
 <script>
-		function submit() {
+		function submitData() {
 			const file = document.getElementById('file-input').files[0];
 			if (file == null) {
 				return ("No file selected");
@@ -43,9 +43,9 @@
 			const poster = new XMLHttpRequest();
 			poster.open('POST', '/storage-submit');
 			var title = $('#title').val();
-			var start = $('#startdate').val();
-			var end   = $('#enddate').val();
-			var text1 = $('#Text1').val();
+			var start = $('startdate').val();
+			var end   = $('enddate').val();
+			var text1 = $('Text1').val();
 			var params = 'event_title=' + title + '&event_startdate=' + start + 
 			             '&event_enddate=' + end + '&Text1=' + text1 + 
 			             '&url=' + url;
@@ -91,7 +91,7 @@
 					        <textarea id="Text1" name="Text1" cols="40" rows="5" maxlength="300"></textarea>
 					    </div>
 					    <div class="button">
-					  		<button type="button" onclick="submit()">Submit</button>
+					  		<button type="button" onclick="submitData()">Submit</button>
 						</div>
 					</form>
 				</div>
