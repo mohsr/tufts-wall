@@ -23,18 +23,15 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'client')));
 var bucket = process.env.S3_BUCKET;
 
-/*
- * Server routes to be implemented:
- * -- GET --
- * [X] Serve index.html
- * [ ] Serve admin login
- * [X] Get events and information
- * -- POST --
- * [-] Submit an event
- * [ ] Remove an events
- * [ ] Admin - login
- * [ ] Admin - remove an event
+ /*
+ * TODO:
+ * Image file type (clientside?)
+ * Mohsin - Admin Portal Login w/ Admin Pass
+ * Mark events as "approved"
+ * Edit GET /events so that only approved events are sent
+ * Mohsin - Remove events
  */
+
 
 /* Get index.html. */
 app.get('/', function(req, res) {
@@ -111,8 +108,7 @@ app.post('/storage-submit', function(req, res) {
 	var ev_url   = req.body.url;
 
 	if (ev_title == null || ev_start == null || ev_end == null || ev_text == null || ev_url == null) {
-		// res.sendStatus(500);
-		res.send(req.body);
+		res.sendStatus(500);
 		return;
 	} else {
 		var data = {
