@@ -14,10 +14,31 @@
 <script>
 		function submitData() {
 			const file = document.getElementById('file-input').files[0];
+			var _URL = window.URL || window.webkitURL;
+			var img; 
+
 			if (file == null) {
 				return ("No file selected");
-			} else {
-				getSignedRequest(file);
+			} 
+			else {
+				img = new Image();
+			    img.onload = function() {
+			        poster_width = this.width;  
+			        poster_height = this.height; 
+			        var ratio = poster_height/poster_width; 
+			    	if ((ratio <1.28) || (ratio > 1.31))	{
+			    	alert ("Image must be portrait orientation with 8.5 x 11 ratio"); 
+			    	}
+			    	else {
+			    	getSignedRequest(file);
+			    	}
+			    };
+
+			    img.onerror = function() {
+			    alert( "Not a valid file: " + file.type); 
+				};
+
+			    img.src = _URL.createObjectURL(file);
 			}
 		}
 
@@ -71,8 +92,8 @@
 	      	</div>
 	      	<div class="modal-body">
 	        	<div id="form">
-					<p>Please select a non-PDF image file.</p>
-					<input type="file" id="file-input" allow= "image/jpg, image/jpeg"/>
+					<p>Please select an image file.</p>
+					<input type="file" id="file-input" accept= "image/*"/>
 					<form id="submission-form">
 					    <div>
 					        <label for="title">Title of Event:</label>

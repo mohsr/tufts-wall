@@ -2,17 +2,34 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>Submit Poster</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<title>The Wall</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet"/>
 	<script src=./js/jquery-3.3.1.min.js></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script>
-		function submit() {
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="MobileOptimized" content="640">
+</head>
+
+<script>
+		
+		function submitData() {
+			var img; 
 			const file = document.getElementById('file-input').files[0];
 			if (file == null) {
 				return ("No file selected");
 			} else {
-				getSignedRequest(file);
+				 img = new Image();
+			        img.onload = function() {
+			        	console.log("Image loaded"); 
+			            poster_width = file.width;  
+			            poster_height = file.height;
+			        };
+			        img.onerror = function() {
+			            alert( "Not a valid file: " + file.type);
+			        };
+
+				//getSignedRequest(file);
 			}
 		}
 
@@ -35,26 +52,26 @@
 			xhr.open('PUT', signed);
 			xhr.send(file);
 
-			$("#submission-form").submit(function obj() {
-				var theurl = $('#urldata');
-				if (theurl.length) {
-					theurl.attr('value', url);
-				} else {
-					var addto = $('<input />');
-					addto.attr('type', 'hidden');
-					addto.attr('id', 'urldata')
-					addto.attr('name', 'url');
-					addto.attr('value', url);
-					addto.appendTo('#submission-form');
-				}
-				return true;
-			});
+			const poster = new XMLHttpRequest();
+			poster.open('POST', '/storage-submit');
+			var title = $('#title').val();
+			var start = $('#startdate').val();
+			var end   = $('#enddate').val();
+			var text1 = $('#Text1').val();
+			var params = 'event_title=' + title + '&event_startdate=' + start + 
+			             '&event_enddate=' + end + '&Text1=' + text1 + 
+			             '&url=' + url;
+			poster.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			poster.send(params);
+
+
+			var element = document.getElementById("form");
+			element.innerHTML = "Thank you for your submission!";
 		}
-	</script>
-</head>
+</script>
+
 <body>
 
-<!-- https://www.w3schools.com/bootstrap/bootstrap_modal.asp -->
 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Submit Poster</button>
 
 <div id="myModal" class="modal fade" role="dialog">
@@ -66,10 +83,9 @@
 	      	</div>
 	      	<div class="modal-body">
 	        	<div id="form">
-					<p>Please select a non-PDF image file.</p>
-					<input type="file" id="file-input" />
-					<button type="button" onclick="submit()">Submit image</button>
-					<form id="submission-form" method="POST" action="/storage-submit">
+					<p>Please select an image file.</p>
+					<input type="file" id="file-input" accept= "image/*"/>
+					<form id="submission-form">
 					    <div>
 					        <label for="title">Title of Event:</label>
 					        <input type="text" id="title" name="event_title">
@@ -80,14 +96,14 @@
 					    </div>
 					    <div>
 					        <label for="enddate">Event End Date:</label>
-					        <input type="Date" name="enddate" name="event_enddate">
+					        <input type="Date" id="enddate" name="event_enddate">
 					    </div>
 					    <div>
 					        <label for="description">Description:</label>
-					        <textarea name="Text1" cols="40" rows="5" maxlength="300"></textarea>
+					        <textarea id="Text1" name="Text1" cols="40" rows="5" maxlength="300"></textarea>
 					    </div>
 					    <div class="button">
-					  		<button type="submit">Submit</button>
+					  		<button type="button" onclick="submitData()">Submit</button>
 						</div>
 					</form>
 				</div>
@@ -98,5 +114,130 @@
     	</div>
   	</div>
 </div>
+
+<h1>Welcome to The Wall</h1>
+<h2>Your source for all current Tufts events</h2>
+<div id= "out_car">
+	<div id="carousel">
+		<div class="slidetop">
+			<img src="http://placehold.it/400x515" alt="Event Poster"/>
+			<!-- <embed src="images/SamplePoster1.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0" width="400px" height="515px"> -->
+			<div class = "info"> 
+				<p> <span  class = "eventtitle"> Canada Bike Expo <br> </span>
+				Date: <br> 
+				Time: <br> 
+				Location: <br>  
+		 		</p>
+			</div>
+		</div>
+
+		<div class="slidebottom">
+			<img src="http://placehold.it/400x515" alt="Event Poster"/>
+			<!-- <embed src="images/SamplePoster2.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0" width="400px" height="515px"> -->
+			<div class = "info"> 
+				<p> <span  class = "eventtitle"> Chill Wave Fest <br> </span>
+				Date: <br> 
+				Time: <br> 
+				Location: <br>  
+			 	</p>
+			</div>
+		</div>
+
+		<div class="slidetop">
+			<img src="http://placehold.it/400x515" alt="Event Poster"/>
+			<!-- <embed src="images/SamplePoster3.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0" width="400px" height="515px"> -->
+			<div class = "info"> 
+				<p> <span  class = "eventtitle"> Get Lucky <br> </span>
+				Date: <br> 
+				Time: <br> 
+				Location: <br>  
+		 		</p>
+			</div>
+		</div>
+
+		<div class="slidebottom">
+			<img src="http://placehold.it/400x515" alt="Event Poster"/>
+			<!-- <embed src="images/SamplePoster4.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0" width="400px" height="515px"> -->
+			<div class = "info"> 
+				<p> <span  class = "eventtitle"> Fall Festival <br> </span>
+				Date: <br> 
+				Time: <br> 
+				Location: <br>  
+		 		</p>
+			</div>
+		</div>
+
+		<div class="slidetop">
+			<img src="http://placehold.it/400x515" alt="Event Poster"/>
+			<!-- <embed src="images/SamplePoster5.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0" width="400px" height="515px"> -->
+			<div class = "info"> 
+				<p> <span  class = "eventtitle"> Workshop in Photography <br> </span>
+				Date: <br> 
+				Time: <br> 
+				Location: <br>  
+		 		</p>
+			</div>
+		</div>
+
+		<div class="slidebottom">
+			<img src="http://placehold.it/400x515" alt="Event Poster"/>
+			<!-- <embed src="images/SamplePoster6.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0" width="400px" height="515px"> -->
+			<div class = "info"> 
+				<p> <span  class = "eventtitle"> Grand Talent Show <br> </span>
+				Date: <br> 
+				Time: <br> 
+				Location: <br>  
+		 		</p>
+			</div>
+		</div>
+
+		<div class="slidetop">
+			<img src="http://placehold.it/400x515" alt="Event Poster"/>
+			<!-- <embed src="images/SamplePoster7.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0" width="400px" height="515px"> -->
+			<div class = "info"> 
+				<p> <span  class = "eventtitle"> Summer Camp 2025 <br> </span>
+				Date: <br> 
+				Time: <br> 
+				Location: <br>  
+		 		</p>
+			</div>
+		</div>
+
+		<div class="slidebottom">
+			<img src="http://placehold.it/400x515" alt="Event Poster"/>
+			<!-- <embed src="images/SamplePoster8.pdf#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0" width="400px" height="515px"> -->
+			<div class = "info"> 
+				<p> <span  class = "eventtitle"> Book Fair <br> </span>
+				Date: <br> 
+				Time: <br> 
+				Location: <br>  
+		 		</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Horizontal scrolling with a mouse scroll wheel -->
+<!-- https://stackoverflow.com/questions/11700927/horizontal-scrolling-with-mouse-wheel-in-a-div -->
+<script>
+(function() {
+    function scrollHorizontally(e) {
+        e = window.event || e;
+        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+        document.getElementById('carousel').scrollLeft -= (delta*40); // Multiplied by 40
+        e.preventDefault();
+    }
+    if (document.getElementById('carousel').addEventListener) {
+        // IE9, Chrome, Safari, Opera
+        document.getElementById('carousel').addEventListener("mousewheel", scrollHorizontally, false);
+        // Firefox
+        document.getElementById('carousel').addEventListener("DOMMouseScroll", scrollHorizontally, false);
+    } else {
+        // IE 6/7/8
+        document.getElementById('carousel').attachEvent("onmousewheel", scrollHorizontally);
+    }
+})();
+</script>
+
 </body>
 </html>
