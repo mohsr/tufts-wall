@@ -19,3 +19,7 @@ Goals for Next Week:
 	- Address further server-side needs before working on admin page.
 	- Finally begin working on admin page.
 	- Dynamically fill login page with data from MongoDB and AWS S3.
+
+# Comments by Ming
+* Excellent work.    Submission form is a huge win.
+* "Address further server-side needs before working on admin page." => yes, this is top priority.  Admin page would be nice to have given enough time.
