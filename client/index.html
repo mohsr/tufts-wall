@@ -8,76 +8,75 @@
 	<script src=./js/jquery-3.3.1.min.js></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<script>
+			function submitData() {
+				const file = document.getElementById('file-input').files[0];
+				var _URL = window.URL || window.webkitURL;
+				var img; 
+
+				if (file == null) {
+					return ("No file selected");
+				} 
+				else {
+					img = new Image();
+				    img.onload = function() {
+				        poster_width = this.width;  
+				        poster_height = this.height; 
+				        var ratio = poster_height/poster_width; 
+				    	if ((ratio <1.28) || (ratio > 1.31))	{
+				    	alert ("Image must be portrait orientation with 8.5 x 11 ratio"); 
+				    	}
+				    	else {
+				    	getSignedRequest(file);
+				    	}
+				    };
+
+				    img.onerror = function() {
+				    alert( "Not a valid file: " + file.type); 
+					};
+
+				    img.src = _URL.createObjectURL(file);
+				}
+			}
+
+			function getSignedRequest(file) {
+				const xhr = new XMLHttpRequest();
+				xhr.open('GET', ('/storage-get?fname=' + file.name + '&ftype=' + file.type));
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState === 4) {
+						if (xhr.status === 200) {
+							const response = JSON.parse(xhr.responseText);
+							upload(file, response.signedRequest, response.url);
+						}
+					}
+				};
+				xhr.send();
+			}
+
+			function upload(file, signed, url) {
+				const xhr = new XMLHttpRequest();
+				xhr.open('PUT', signed);
+				xhr.send(file);
+
+				const poster = new XMLHttpRequest();
+				poster.open('POST', '/storage-submit');
+				var title = $('#title').val();
+				var start = $('#startdate').val();
+				var end   = $('#enddate').val();
+				var text1 = $('#Text1').val();
+				var params = 'event_title=' + title + '&event_startdate=' + start + 
+				             '&event_enddate=' + end + '&Text1=' + text1 + 
+				             '&url=' + url;
+				poster.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+				poster.send(params);
+
+
+				var element = document.getElementById("form");
+				element.innerHTML = "Thank you for your submission!";
+			}
+	</script>
 	<meta name="MobileOptimized" content="640">
 </head>
-
-<script>
-		function submitData() {
-			const file = document.getElementById('file-input').files[0];
-			var _URL = window.URL || window.webkitURL;
-			var img; 
-
-			if (file == null) {
-				return ("No file selected");
-			} 
-			else {
-				img = new Image();
-			    img.onload = function() {
-			        poster_width = this.width;  
-			        poster_height = this.height; 
-			        var ratio = poster_height/poster_width; 
-			    	if ((ratio <1.28) || (ratio > 1.31))	{
-			    	alert ("Image must be portrait orientation with 8.5 x 11 ratio"); 
-			    	}
-			    	else {
-			    	getSignedRequest(file);
-			    	}
-			    };
-
-			    img.onerror = function() {
-			    alert( "Not a valid file: " + file.type); 
-				};
-
-			    img.src = _URL.createObjectURL(file);
-			}
-		}
-
-		function getSignedRequest(file) {
-			const xhr = new XMLHttpRequest();
-			xhr.open('GET', ('/storage-get?fname=' + file.name + '&ftype=' + file.type));
-			xhr.onreadystatechange = function() {
-				if (xhr.readyState === 4) {
-					if (xhr.status === 200) {
-						const response = JSON.parse(xhr.responseText);
-						upload(file, response.signedRequest, response.url);
-					}
-				}
-			};
-			xhr.send();
-		}
-
-		function upload(file, signed, url) {
-			const xhr = new XMLHttpRequest();
-			xhr.open('PUT', signed);
-			xhr.send(file);
-
-			const poster = new XMLHttpRequest();
-			poster.open('POST', '/storage-submit');
-			var title = $('#title').val();
-			var start = $('#startdate').val();
-			var end   = $('#enddate').val();
-			var text1 = $('#Text1').val();
-			var params = 'event_title=' + title + '&event_startdate=' + start + 
-			             '&event_enddate=' + end + '&Text1=' + text1 + 
-			             '&url=' + url;
-			poster.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-			poster.send(params);
-
-
-			var element = document.getElementById("form");
-			element.innerHTML = "Thank you for your submission!";
-		}
-</script>
 
 <body>
 
