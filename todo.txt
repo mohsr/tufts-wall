@@ -3,6 +3,8 @@ Things that are TODO:
 Client-side:
 -Fix/standardize image sizing
 -Improve readability on title/subtitle of site
+-Clean up comments and client-side code in general
+-Run through HTML validator
 -See "Both"
 
 Server-side:
