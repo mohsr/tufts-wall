@@ -64,9 +64,10 @@
 				var title = $('#title').val();
 				var start = $('#startdate').val();
 				var end   = $('#enddate').val();
+				var loc   = $('#location').val();
 				var text1 = $('#Text1').val();
 				var params = 'event_title=' + title + '&event_startdate=' + start + 
-				             '&event_enddate=' + end + '&Text1=' + text1 + 
+				             '&event_enddate=' + end + '&event_location=' + loc + '&Text1=' + text1 + 
 				             '&url=' + url;
 				poster.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 				poster.send(params);
@@ -106,6 +107,10 @@
 					    <div>
 					        <label for="enddate">Event End Date:</label>
 					        <input type="Date" id="enddate" name="event_enddate">
+					    </div>
+					    <div>
+					    	<label for="location">Location:</label>
+					    	<input type="text" id="location" name="event_location">
 					    </div>
 					    <div>
 					        <label for="description">Description:</label>

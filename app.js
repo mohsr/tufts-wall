@@ -104,10 +104,11 @@ app.post('/storage-submit', function(req, res) {
 	var ev_title = req.body.event_title;
 	var ev_start = req.body.event_startdate;
 	var ev_end   = req.body.event_enddate;
+	var ev_loc   = req.body.event_location;
 	var ev_text  = req.body.Text1;
 	var ev_url   = req.body.url;
 
-	if (ev_title == null || ev_start == null || ev_end == null || ev_text == null || ev_url == null) {
+	if (ev_title == null || ev_start == null || ev_end == null || ev_loc == null || ev_text == null || ev_url == null) {
 		res.sendStatus(500);
 		return;
 	} else {
@@ -115,6 +116,7 @@ app.post('/storage-submit', function(req, res) {
 			title: ev_title,
 			start: ev_start,
 			end:   ev_end,
+			loc:   ev_loc,
 			text:  ev_text,
 			url:   ev_url
 		}
