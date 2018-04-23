@@ -8,6 +8,7 @@ Client-side:
 -See "Both" below
 
 Server-side:
+-Enable CORS and only accept POST /storage-submit from tuftswall.herokuapp.com
 -See "Both" below
 
 Both:
