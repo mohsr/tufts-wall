@@ -23,16 +23,6 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'client')));
 var bucket = process.env.S3_BUCKET;
 
- /*
- * TODO:
- * Image file type (clientside?)
- * Mohsin - Admin Portal Login w/ Admin Pass
- * Mark events as "approved"
- * Edit GET /events so that only approved events are sent
- * Mohsin - Remove events
- */
-
-
 /* Get index.html. */
 app.get('/', function(req, res) {
 	res.sendFile('index.html');
