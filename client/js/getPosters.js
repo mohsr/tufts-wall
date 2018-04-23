@@ -16,7 +16,7 @@ function renderEvents(events) {
 	var spot = 'top';
 	for (var i = 0; i < events.length; i++) {
 		var obj = events[i];
-		var newHTML = '<div class="' + spot + '"><img src="' +
+		var newHTML = '<div class="slide' + spot + '"><img src="' +
 		              obj.url + '" alt="Event Poster"/><div class="info">' + 
 		              '<p> <span class="eventtitle">' + obj.title + 
 		              '<br/></span>Date: ' + obj.start + ' - ' + obj.end + 
