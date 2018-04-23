@@ -11,6 +11,7 @@ $(document).ready(function() {
 });
 
 function renderEvents(events) {
+	console.log('adding events');
 	var car = $('#carousel');
 	var spot = 'top';
 	for (var i = 0; i < events.length; i++) {
@@ -19,7 +20,7 @@ function renderEvents(events) {
 		              obj.url + '" alt="Event Poster"/><div class="info">' + 
 		              '<p> <span class="eventtitle">' + obj.title + 
 		              '<br/></span>Date: ' + obj.start + ' - ' + obj.end + 
-		              '<br/>' + text + '<br/></p></div></div>';
+		              '<br/>' + obj.text + '<br/></p></div></div>';
 		car.append(newHTML);
 		if (spot === 'top') {
 			spot = 'bottom';
