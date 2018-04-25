@@ -13,7 +13,6 @@ h1 {
 	font-family: "Courier";
 	line-height: 50%;
 	color: white;
-	background-color: black;
 }
 
 h2 {
@@ -22,6 +21,9 @@ h2 {
 	font-family: "Courier";
 	line-height: 50%;
 	color: white;
+}
+
+#title {
 	background-color: black;
 }
 
