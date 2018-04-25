@@ -35,6 +35,7 @@ app.get('/events', function(req, res) {
 			if (error) {
 				res.sendStatus(500);
 			} else {
+				results.reverse();
 				res.send(results);
 			}
 		});
