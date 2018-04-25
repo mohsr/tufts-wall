@@ -13,4 +13,6 @@ Server-side:
 
 Both:
 -Remove event
+
+BONUS:
 -Admin portal
