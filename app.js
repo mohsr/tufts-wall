@@ -21,12 +21,6 @@ var db = mongo.connect(mongoUri, function(error, dbconnection) {
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'client')));
-app.use(function(req, res, next) {
-	res.header('Access-Control-Allow-Origin', 'tuftswall.herokuapp.com');
-	res.header('Access-Control-Allow-Headers', 
-		       'Origin, X-Requested-With, Content-Type, Accept');
-	next();
-});
 var bucket = process.env.S3_BUCKET;
 
 /* Get index.html. */
