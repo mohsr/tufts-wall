@@ -21,6 +21,12 @@ var db = mongo.connect(mongoUri, function(error, dbconnection) {
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'client')));
+app.use(function(req, res, next) {
+	res.header('Access-Control-Allow-Origin', 'tuftswall.herokuapp.com');
+	res.header('Access-Control-Allow-Headers', 
+		       'Origin, X-Requested-With, Content-Type, Accept');
+	next();
+});
 var bucket = process.env.S3_BUCKET;
 
 /* Get index.html. */
@@ -30,7 +36,6 @@ app.get('/', function(req, res) {
 
 /* Get information on events, including posters. */
 app.get('/events', function(req, res) {
-	res.header('Access-Control-Allow-Origin', 'tuftswall.herokuapp.com');
 	db.collection('events', function(error, coll) {
 		coll.find().toArray(function(error, results) {
 			if (error) {
@@ -49,7 +54,6 @@ app.get('/submit', function(req, res) {
 
 /* Get a signed URL for image submission. */
 app.get('/storage-get', function(req, res) {
-	res.header('Access-Control-Allow-Origin', 'tuftswall.herokuapp.com');
 	/* Get an unused random array of hex chars. */
 	var bytes = crypto.randomBytes(12).toString('hex');
 	db.collection('ids', function(error, collection) {
@@ -93,7 +97,6 @@ app.get('/storage-get', function(req, res) {
 
 /* Submit the event data to MongoDB. */
 app.post('/storage-submit', function(req, res) {
-	res.header('Access-Control-Allow-Origin', 'tuftswall.herokuapp.com');
 	var ev_title = req.body.event_title;
 	var ev_start = req.body.event_startdate;
 	var ev_end   = req.body.event_enddate;
