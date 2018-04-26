@@ -79,3 +79,13 @@ p {
 	border-style: solid;
 	border-color: white;
 }
+
+.img_holder {
+	width: 600px;
+	height: 772px;
+}
+
+.img_holder img {
+	width: 100%;
+	height: auto;
+}
