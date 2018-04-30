@@ -79,7 +79,7 @@
 				description = description.replace(/[^\w\s]/gi, ''); //remove special characters
 
 				var params = 'event_title=' + title + '&event_date=' + date + 
-				             '&event_time=' + time + '&event_location=' + loc + '&description=' + description + 
+				             '&event_time=' + time + '&event_location=' + loc + '&event_description=' + description + 
 				             '&url=' + url;
 				poster.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 				poster.send(params);
