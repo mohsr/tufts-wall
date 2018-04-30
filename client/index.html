@@ -60,12 +60,14 @@
 				xhr.send(file);
 
 				const poster = new XMLHttpRequest();
+
 				poster.open('POST', '/storage-submit');
 				var title = $('#title').val();
 				var date = $('#date').val();
 				var time   = $('#time').val();
 				var loc   = $('#location').val();
 				var description = $('#description').val();
+				description = description.replace(/[^\w\s]/gi, ''); //remove special characters
 				var params = 'event_title=' + title + '&event_date=' + date + 
 				             '&event_time=' + time + '&event_location=' + loc + '&description=' + description + 
 				             '&url=' + url;
