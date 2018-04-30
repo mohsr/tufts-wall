@@ -62,12 +62,12 @@
 				const poster = new XMLHttpRequest();
 				poster.open('POST', '/storage-submit');
 				var title = $('#title').val();
-				var start = $('#startdate').val();
-				var end   = $('#enddate').val();
+				var date = $('#date').val();
+				var time   = $('#time').val();
 				var loc   = $('#location').val();
 				var description = $('#description').val();
-				var params = 'event_title=' + title + '&event_startdate=' + start + 
-				             '&event_enddate=' + end + '&event_location=' + loc + '&description=' + description + 
+				var params = 'event_title=' + title + '&event_date=' + date + 
+				             '&event_time=' + time + '&event_location=' + loc + '&description=' + description + 
 				             '&url=' + url;
 				poster.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 				poster.send(params);
@@ -101,12 +101,12 @@
 					        <input type="text" id="title" name="event_title">
 					    </div>
 					    <div>
-					        <label for="startdate">Event Start Date:</label>
-					        <input type="Date" id="startdate" name="event_startdate">
+					        <label for="date">Event Date:</label>
+					        <input type="Date" id="date" name="event_date">
 					    </div>
 					    <div>
-					        <label for="enddate">Event End Date:</label>
-					        <input type="Date" id="enddate" name="event_enddate">
+					        <label for="time">Event Time:</label>
+					        <input type="Time" id="time" name="event_time">
 					    </div>
 					    <div>
 					    	<label for="location">Location:</label>
