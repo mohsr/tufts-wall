@@ -11,7 +11,6 @@ $(document).ready(function() {
 });
 
 function renderEvents(events) {
-	console.log('adding events');
 	var car = $('#carousel');
 	var spot = 'top';
 	for (var i = 0; i < events.length; i++) {
