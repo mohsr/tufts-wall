@@ -70,7 +70,7 @@ p {
 
 #carousel .info {
 	background-color:#b3ccff;
-	/*height: 10%;*/
+	height: auto;
 	width: 400px; 
 	padding-left: 10px; 
 	padding-right: 10px; 
@@ -78,7 +78,8 @@ p {
 	padding-bottom: 1px;
 	border-style: solid;
 	border-color: white;
-	word-wrap: break-word;
+	word-wrap: normal;
+	text-wrap: normal;
 }
 
 .img_holder {
