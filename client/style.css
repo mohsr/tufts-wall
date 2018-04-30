@@ -31,14 +31,14 @@ h2 {
 
 #out_car {
 	width: auto;
-	height: 1000px;
+	height: 800px;
 	overflow: hidden;
     	padding: 10px;
 }
 
 #carousel {
 	width: auto;
-	height: 1050px;
+	height: 850px;
 	/*background-color: white;*/
 	overflow: auto;
 	white-space:nowrap;
@@ -80,6 +80,7 @@ p {
 	border-color: white;
 	word-wrap: normal;
 	text-wrap: normal;
+	overflow-wrap: normal;
 }
 
 .img_holder {
