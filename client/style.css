@@ -78,6 +78,7 @@ p {
 	padding-bottom: 1px;
 	border-style: solid;
 	border-color: white;
+	word-wrap: break-word;
 }
 
 .img_holder {
