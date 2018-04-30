@@ -62,12 +62,22 @@
 				const poster = new XMLHttpRequest();
 
 				poster.open('POST', '/storage-submit');
+				
 				var title = $('#title').val();
+				title = title.replace(/[^\w\s]/gi, ''); //remove special characters
+
 				var date = $('#date').val();
+				date = date.replace(/[^\w\s]/gi, ''); //remove special characters
+
 				var time   = $('#time').val();
+				time = time.replace(/[^\w\s]/gi, ''); //remove special characters
+
 				var loc   = $('#location').val();
+				loc = loc.replace(/[^\w\s]/gi, ''); //remove special characters
+
 				var description = $('#description').val();
 				description = description.replace(/[^\w\s]/gi, ''); //remove special characters
+
 				var params = 'event_title=' + title + '&event_date=' + date + 
 				             '&event_time=' + time + '&event_location=' + loc + '&description=' + description + 
 				             '&url=' + url;
