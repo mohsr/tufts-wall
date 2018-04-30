@@ -20,7 +20,7 @@ function renderEvents(events) {
 		              obj.url + '" alt="Event Poster"/></div><div class="info">' + 
 		              '<p> <span class="eventtitle">' + obj.title + 
 		              '<br/></span>Date: ' + obj.date + '<br/>' + 'Time: ' + obj.time + 
-		              '<br/>' + 'Location: ' + obj.loc + '<br/>' + obj.text + '<br/></p></div></div>';
+		              '<br/>' + 'Location: ' + obj.loc + '<br/>' + obj.description + '<br/></p></div></div>';
 		car.append(newHTML);
 		if (spot === 'top') {
 			spot = 'bottom';
