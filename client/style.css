@@ -78,10 +78,9 @@ p {
 	padding-bottom: 1px;
 	border-style: solid;
 	border-color: white;
-	word-wrap: break-word;
-	text-wrap: normal;
-	overflow-wrap: normal;
-	white-space: -webkit-pre-wrap;
+	white-space: nowrap; 
+	overflow: hidden; 
+	text-overflow: ellipsis;
 }
 
 .img_holder {
