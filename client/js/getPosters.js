@@ -37,7 +37,7 @@ function renderEvents(events) {
 		var imgHTML = '<img src="' + obj.url + '" alt="Event Poster"/>';
 		var pageHTML = '';
 		if (obj.page != '') {
-			var pageHTML = 'Link: <a href="' + obj.page + '" />Click here!</a><br/>';
+			var pageHTML = 'Link: <a href="' + obj.page + '">Click here!</a><br/>';
 		}
 		var newHTML = '<div class="slide' + spot + '"><div class="img_holder">' +
 					  imgHTML + '</div><div class="info">' + 
