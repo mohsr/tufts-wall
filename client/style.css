@@ -23,9 +23,13 @@ h2 {
 	color: white;
 }
 
-h1, h2 {
+@font-face {
 	font-family: drippingMarker;
     src: url("fonts/drippingMarker.ttf");
+}
+
+h1, h2 {
+	font-family: drippingMarker;
 }
 
 #page_title {
