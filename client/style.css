@@ -91,7 +91,7 @@ p {
 
 .img_holder {
 	width: 400px;
-	height: 515px;
+	height: auto;
 	padding-top: 1px; 
 	padding-bottom: 1px;
 }
