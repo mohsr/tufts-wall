@@ -42,7 +42,7 @@ function renderEvents(events) {
 		var newHTML = '<div class="slide' + spot + '"><div class="img_holder">' +
 					  imgHTML + '</div><div class="info">' + 
 		              '<p> <span class="eventtitle">' + obj.title + 
-		              '<br/>' + pageHTML + '</span>Date: ' + monthNames[parse_date.getMonth()] + ' '
+		              '<br/></span>' + pageHTML + 'Date: ' + monthNames[parse_date.getMonth()] + ' '
 		              + parse_date.getDate() + ', ' + parse_date.getFullYear() + '<br/>' 
 		              + 'Time: ' + hour + ':' + minute + ' ' + amOrPm +
 		              '<br/>' + 'Location: ' + obj.loc + '<br/><br/>' + obj.description + '<br/></p></div></div>';
