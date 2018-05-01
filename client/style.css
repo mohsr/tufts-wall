@@ -1,8 +1,8 @@
 /* This is a style sheet */
 
 body {
-	background-image: url("images/brickbackground.jpeg");
-	background-color: orange;
+	background-image: url("images/whitebrick.jpg");
+	background-color: white;
 	background-size: cover;
 	color: black;
 }
@@ -61,7 +61,7 @@ h2 {
 }
 
 #carousel .eventtitle {
-	font-size: 20px; 
+	font-size: 24px; 
 }
 
 p {
@@ -92,8 +92,6 @@ p {
 .img_holder {
 	width: 400px;
 	height: auto;
-	padding-top: 1px; 
-	padding-bottom: 1px;
 }
 
 .img_holder img {
