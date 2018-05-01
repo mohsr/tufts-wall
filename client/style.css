@@ -2,7 +2,7 @@
 
 body {
 	background-image: url("images/whitebrick.jpg");
-	background-color: orange;
+	background-color: white;
 	background-size: cover;
 	color: black;
 }
@@ -92,8 +92,6 @@ p {
 .img_holder {
 	width: 400px;
 	height: auto;
-	border-style: solid;
-	border-color: white;
 }
 
 .img_holder img {
