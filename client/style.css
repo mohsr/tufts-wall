@@ -7,29 +7,26 @@ body {
 	color: black;
 }
 
-h1 {
-	padding-top: 10px;
-	text-align: center;
-	font-size: 70px;
-	line-height: 50%;
-	color: black;
-}
-
-/*h2 {
-	padding-bottom: 10px;
-	text-align: center;
-	font-size: 24px;
-	line-height: 50%;
-	color: white;
-}*/
-
 @font-face {
 	font-family: drippingMarker;
     src: url("fonts/drippingMarker.ttf");
 }
 
-h1, h2 {
+h1 {
+	padding-top: 10px;
+	text-align: center;
+	font-size: 90px;
+	line-height: 50%;
+	color: black;
 	font-family: drippingMarker;
+}
+
+h2 {
+	padding-bottom: 10px;
+	text-align: center;
+	font-size: 24px;
+	line-height: 50%;
+	color: white;
 }
 
 #page_title {
