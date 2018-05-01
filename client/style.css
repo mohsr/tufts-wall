@@ -10,18 +10,18 @@ body {
 h1 {
 	padding-top: 10px;
 	text-align: center;
-	font-size: 32px;
+	font-size: 48px;
 	line-height: 50%;
-	color: white;
+	color: black;
 }
 
-h2 {
+/*h2 {
 	padding-bottom: 10px;
 	text-align: center;
 	font-size: 24px;
 	line-height: 50%;
 	color: white;
-}
+}*/
 
 @font-face {
 	font-family: drippingMarker;
@@ -33,7 +33,7 @@ h1, h2 {
 }
 
 #page_title {
-	background-color: black;
+	/*background-color: black;*/
 }
 
 #out_car {
