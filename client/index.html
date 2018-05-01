@@ -69,6 +69,8 @@
 				var title = $('#title').val();
 				title = title.replace(/[^\w\s]/gi, ''); //remove special characters
 
+				var ev_url = $('#event_url').val();
+
 				var date = $('#date').val();
 				// date = date.replace(/[^\w\s]/gi, ''); //remove special characters
 
@@ -81,7 +83,7 @@
 				var description = $('#description').val();
 				description = description.replace(/[^\w\s]/gi, ''); //remove special characters
 
-				var params = 'event_title=' + title + '&event_date=' + date + 
+				var params = 'event_title=' + title + '&event_url=' + ev_url + '&event_date=' + date + 
 				             '&event_time=' + time + '&event_location=' + loc + '&event_description=' + description + 
 				             '&url=' + url;
 				poster.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -114,6 +116,10 @@
 					    <div>
 					        <label for="title">Title of Event:</label>
 					        <input type="text" id="title" name="event_title">
+					    </div>
+					    <div>
+					    	<label for="event_url">URL of Event:</label>
+					    	<input type="url" id="event_url" name="event_url">
 					    </div>
 					    <div>
 					        <label for="date">Event Date:</label>

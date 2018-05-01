@@ -93,18 +93,20 @@ app.get('/storage-get', function(req, res) {
 /* Submit the event data to MongoDB. */
 app.post('/storage-submit', function(req, res) {
 	var ev_title = req.body.event_title;
+	var ev_page  = req.body.event_url;
 	var ev_date  = req.body.event_date;
 	var ev_time  = req.body.event_time;
 	var ev_loc   = req.body.event_location;
 	var ev_desc  = req.body.event_description;
 	var ev_url   = req.body.url;
 
-	if (ev_title == null || ev_date == null || ev_time== null || ev_loc == null || ev_desc == null || ev_url == null) {
+	if (ev_title == null || ev_page == null || ev_date == null || ev_time== null || ev_loc == null || ev_desc == null || ev_url == null) {
 		res.sendStatus(500);
 		return;
 	} else {
 		var data = {
 			title: ev_title,
+			page:  ev_page,
 			date:  ev_date,
 			time:  ev_time,
 			loc:   ev_loc,
