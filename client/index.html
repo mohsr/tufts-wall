@@ -29,8 +29,9 @@
 				    	} 
 				    	else if ($('#title').val() == "" || $('#date').val() == "" || $('#time').val() == "" || $('#location').val() == "" || $('#description').val() == "") {
 				    		alert ("Please fill out the missing information for this event!");
-				    	} 
-				    	else {
+				    	} else if ($('#event_url').val().substring(0, 4) != 'http') {
+				    		alert ("Please enter a valid URL (it must start with HTTP or HTTPS)!");
+				    	} else {
 				    		getSignedRequest(file);
 				    	}
 				    };
