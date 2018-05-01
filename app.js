@@ -35,24 +35,7 @@ app.get('/events', function(req, res) {
 			if (error) {
 				res.sendStatus(500);
 			} else {
-				//results.reverse();
-
-				var newResults[0] = results [0]; 
-
-				for (i=1; i< results.length(); i++){
-
-					if (newResults[i-1].date < results[i].date) {
-						newResults [i] = results[i]; 
-					}
-					else if (newResults[i-1].date > results[i].date) {
-						newResults [i] = newResults [i-1];
-						newResults [i-1] = results [i];
-					}
-
-					else if (newResults[i-1].date == results[i].date) {
-						newResults[i] = results [i];
-					}
-				}
+				results.reverse();
 
 				/* Delete old events from the database. */
 				var right_now = new Date();
