@@ -15,14 +15,12 @@ function renderEvents(events) {
 	var spot = 'top';
 	for (var i = 0; i < events.length; i++) {
 		var obj = events[i];
-		var imgHTML = '<img src="' + obj.url + '" alt="Event Poster"/>';
-		if (obj.page != '') {
-			imgHTML = '<a href="' + obj.page + '">' + imgHTML + '</a>';
-		}
-		var newHTML = '<div class="slide' + spot + '"><div class="img_holder">' + 
-					  imgHTML + '</div><div class="info">' + 
+		var parse_date = new Date(parse.Date(obj.date));
+		var newHTML = '<div class="slide' + spot + '"><div class="img_holder"><img src="' +
+		              obj.url + '" alt="Event Poster"/></div><div class="info">' + 
 		              '<p> <span class="eventtitle">' + obj.title + 
-		              '<br/></span>Date: ' + obj.date + '<br/>' + 'Time: ' + obj.time + 
+		              '<br/></span>Date: ' + obj.date + '<br/>' + 'Time: ' + parse_date.getMonth() + ' ' + parse_date.getDate()
+		              + ', ' + parse_date.getFullYear() +
 		              '<br/>' + 'Location: ' + obj.loc + '<br/><br/>' + obj.description + '<br/></p></div></div>';
 		car.append(newHTML);
 		if (spot === 'top') {
