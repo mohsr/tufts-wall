@@ -31,6 +31,7 @@ function renderEvents(events) {
 		              '<br/></span>Date: ' + obj.date + '<br/>' + 'Time: ' + monthNames[parse_date.getMonth()] + ' '
 		              + parse_date.getDate() + ', ' + parse_date.getFullYear() +
 		              '<br/>' + 'Location: ' + obj.loc + '<br/><br/>' + obj.description + '<br/></p></div></div>';
+		              
 		car.append(newHTML);
 		if (spot === 'top') {
 			spot = 'bottom';

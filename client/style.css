@@ -92,6 +92,8 @@ p {
 .img_holder {
 	width: 400px;
 	height: 515px;
+	padding-top: 1px; 
+	padding-bottom: 1px;
 }
 
 .img_holder img {
