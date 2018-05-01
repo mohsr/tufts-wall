@@ -20,13 +20,13 @@ function renderEvents(events) {
  							"July", "August", "September", "October", "November", "December"
 						   ];
 		var parse_date = new Date(Date.parse(obj.date));
-		var hour = parseInt(obj.time.substring(0, 1));
-		var minute =  parseInt(obj.time.substring(4, 5));
+		var hour = parseInt(obj.time.substring(0, 2));
+		var minute =  parseInt(obj.time.substring(3, 5));
 		var amOrPm = (hour > 11) ? "PM" : "AM";
 
 		if (hour > 12) {
 		    hour -= 12;
-		} else if(hour == 0) {
+		} else if (hour == 0) {
 		    hour = "12";
 		}
 
