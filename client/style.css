@@ -92,8 +92,8 @@ p {
 .img_holder {
 	width: 400px;
 	height: auto;
-	padding-top: 1px; 
-	padding-bottom: 1px;
+	border-style: solid;
+	border-color: white;
 }
 
 .img_holder img {
