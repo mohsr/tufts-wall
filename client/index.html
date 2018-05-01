@@ -24,8 +24,8 @@
 				        poster_width = this.width;  
 				        poster_height = this.height; 
 				        var ratio = poster_height / poster_width; 
-				    	if ((ratio < 1.15) || (ratio > 1.45)) {
-				    		alert ("Image must be portrait orientation with 8.5 x 11 ratio"); 
+				    	if ((ratio < 1.25) || (ratio > 1.35)) {
+				    		alert ("Image must be portrait orientation with close to 8.5 x 11 ratio");
 				    	} 
 				    	else if ($('#title').val() == "" || $('#date').val() == "" || $('#time').val() == "" || $('#location').val() == "" || $('#description').val() == "") {
 				    		alert ("Please fill out the missing information for this event!");
