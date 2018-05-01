@@ -22,7 +22,7 @@ function renderEvents(events) {
 		var parse_date = new Date(Date.parse(obj.date));
 
 		var imgHTML = '<img src="' + obj.url + '" alt="Event Poster"/>';
-		if (obj.page != '') {
+		if (obj.page != "") {
 			imgHTML = '<a href="//' + obj.page + '">' + imgHTML + '</a>';
 		}
 		var newHTML = '<div class="slide' + spot + '"><div class="img_holder">' +

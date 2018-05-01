@@ -4,6 +4,7 @@ body {
 	background-image: url("images/whitebrick.jpg");
 	background-color: white;
 	background-size: cover;
+	font-family: "Courier";
 	color: black;
 }
 
@@ -11,7 +12,6 @@ h1 {
 	padding-top: 10px;
 	text-align: center;
 	font-size: 32px;
-	font-family: "Courier";
 	line-height: 50%;
 	color: white;
 }
@@ -20,7 +20,6 @@ h2 {
 	padding-bottom: 10px;
 	text-align: center;
 	font-size: 24px;
-	font-family: "Courier";
 	line-height: 50%;
 	color: white;
 }
