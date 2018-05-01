@@ -47,6 +47,7 @@ function renderEvents(events) {
 			}
 			imgHTML = '<a href="' + page + '">' + imgHTML + '</a>';
 		}
+		console.log(imgHTML);
 		var newHTML = '<div class="slide' + spot + '"><div class="img_holder">' +
 					  imgHTML + '</div><div class="info">' + 
 		              '<p> <span class="eventtitle">' + obj.title + 
