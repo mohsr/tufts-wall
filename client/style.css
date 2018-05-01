@@ -17,6 +17,7 @@ h1 {
 	font-size: 90px;
 	font-family: drippingMarker;
     line-height: 60px;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 h2 {
