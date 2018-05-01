@@ -35,23 +35,14 @@ function renderEvents(events) {
 		}
 
 		var imgHTML = '<img src="' + obj.url + '" alt="Event Poster"/>';
-		var page;
+		var pageHTML = '';
 		if (obj.page != '') {
-			page = obj.page;
-			console.log(page);
-			if (page.length >= 4) {
-				if (page.substring(0,4) != 'http') {
-					console.log(page.substring(0,4));
-					page = '//' + page;
-				}
-			}
-			imgHTML = '<a href="' + page + '">' + imgHTML + '</a>';
+			var pageHTML = 'Link: <a href="' + obj.page + '" />Click here!</a><br/>';
 		}
-		console.log(imgHTML);
 		var newHTML = '<div class="slide' + spot + '"><div class="img_holder">' +
 					  imgHTML + '</div><div class="info">' + 
 		              '<p> <span class="eventtitle">' + obj.title + 
-		              '<br/></span>Date: ' + monthNames[parse_date.getMonth()] + ' '
+		              '<br/>' + pageHTML + '</span>Date: ' + monthNames[parse_date.getMonth()] + ' '
 		              + parse_date.getDate() + ', ' + parse_date.getFullYear() + '<br/>' 
 		              + 'Time: ' + hour + ':' + minute + ' ' + amOrPm +
 		              '<br/>' + 'Location: ' + obj.loc + '<br/><br/>' + obj.description + '<br/></p></div></div>';
