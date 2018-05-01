@@ -16,8 +16,12 @@ function renderEvents(events) {
 	for (var i = 0; i < events.length; i++) {
 		var obj = events[i];
 		var parse_date = new Date(Date.parse(obj.date));
-		var newHTML = '<div class="slide' + spot + '"><div class="img_holder"><img src="' +
-		              obj.url + '" alt="Event Poster"/></div><div class="info">' + 
+		var imgHTML = '<img src="' + obj.url + '" alt="Event Poster"/>';
+		if (obj.page != '') {
+			imgHTML = '<a href="' + obj.page + '">' + imgHTML + '</a>';
+		}
+		var newHTML = '<div class="slide' + spot + '"><div class="img_holder">' +
+					  imgHTML + '</div><div class="info">' + 
 		              '<p> <span class="eventtitle">' + obj.title + 
 		              '<br/></span>Date: ' + obj.date + '<br/>' + 'Time: ' + parse_date.getMonth() + 
 		              '<br/>' + 'Location: ' + obj.loc + '<br/><br/>' + obj.description + '<br/></p></div></div>';
