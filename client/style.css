@@ -31,14 +31,14 @@ h2 {
 
 #out_car {
 	width: auto;
-	height: 800px;
+	height: auto;
 	overflow: hidden;
     padding: 10px;
 }
 
 #carousel {
 	width: auto;
-	height: 850px;
+	height: auto + 50;
 	/*background-color: white;*/
 	overflow: auto;
 	white-space:nowrap;
@@ -78,9 +78,16 @@ p {
 	padding-bottom: 1px;
 	border-style: solid;
 	border-color: white;
-	word-wrap: normal;
-	text-wrap: normal;
-	overflow-wrap: normal;
+	white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    white-space: pre-wrap;       /* css-3 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    white-space: -webkit-pre-wrap; /* Newer versions of Chrome/Safari*/
+    word-break: break-all;
+    white-space: normal; 
+	overflow: hidden; 
+	text-overflow: ellipsis;
 }
 
 .img_holder {
