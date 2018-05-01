@@ -34,7 +34,7 @@ function renderEvents(events) {
 		    minute = "0" + minute;
 		}
 
-		var imgHTML = '<img src="' + obj.url + '" alt="Event Poster"/>';
+		var imgHTML = '<img src="' + obj.url + '" alt="Event Poster" />';
 		var pageHTML = '';
 		if (obj.page != '') {
 			var pageHTML = 'Link: <a href="' + obj.page + '">Click here!</a><br/>';
