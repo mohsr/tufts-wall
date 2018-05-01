@@ -21,15 +21,14 @@
 			} else {
 				 img = new Image();
 			        img.onload = function() {
-			        	console.log("Image loaded"); 
-			            poster_width = file.width;  
+			        	poster_width = file.width;  
 			            poster_height = file.height;
 			        };
 			        img.onerror = function() {
 			            alert( "Not a valid file: " + file.type);
 			        };
 
-				//getSignedRequest(file);
+				getSignedRequest(file);
 			}
 		}
 
