@@ -25,7 +25,7 @@ h2 {
 
 h1, h2 {
 	font-family: drippingMarker;
-    src: url(fonts/drippingMarker.ttf);
+    src: url("fonts/drippingMarker.ttf");
 }
 
 #page_title {
