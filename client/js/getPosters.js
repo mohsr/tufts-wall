@@ -43,7 +43,7 @@ function renderEvents(events) {
 					  imgHTML + '</div><div class="info">' + 
 		              '<p> <span class="eventtitle">' + obj.title + 
 		              '<br/></span>' + pageHTML + 'Date: ' + monthNames[parse_date.getMonth()] + ' '
-		              + parse_date.getDate() + ', ' + parse_date.getFullYear() + '<br/>' 
+		              + (parse_date.getDate() + 1) + ', ' + parse_date.getFullYear() + '<br/>' 
 		              + 'Time: ' + hour + ':' + minute + ' ' + amOrPm +
 		              '<br/>' + 'Location: ' + obj.loc + '<br/><br/>' + obj.description + '<br/></p></div></div>';
 		              
