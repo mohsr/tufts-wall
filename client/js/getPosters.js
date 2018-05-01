@@ -38,6 +38,7 @@ function renderEvents(events) {
 		var page;
 		if (obj.page != '') {
 			page = obj.page;
+			console.log(page);
 			if (page.length >= 4) {
 				if (page.substring(0,4) != 'http') {
 					console.log(page.substring(0,4));
