@@ -20,16 +20,30 @@ function renderEvents(events) {
  							"July", "August", "September", "October", "November", "December"
 						   ];
 		var parse_date = new Date(Date.parse(obj.date));
+		var hour = parse_date.getHours();
+		var minute = parse_date.getMinutes();
+		var amOrPm = (hour > 11) ? "PM" : "AM";
+
+		if (hour > 12) {
+		    hour -= 12;
+		} else if(hour == 0) {
+		    hour = "12";
+		}
+
+		if (minute < 10) {
+		    minute = "0" + minute;
+		}
 
 		var imgHTML = '<img src="' + obj.url + '" alt="Event Poster"/>';
-		if (obj.page != "") {
+		if (obj.page != '') {
 			imgHTML = '<a href="//' + obj.page + '">' + imgHTML + '</a>';
 		}
 		var newHTML = '<div class="slide' + spot + '"><div class="img_holder">' +
 					  imgHTML + '</div><div class="info">' + 
 		              '<p> <span class="eventtitle">' + obj.title + 
 		              '<br/></span>Date: ' + monthNames[parse_date.getMonth()] + ' '
-		              + parse_date.getDate() + ', ' + parse_date.getFullYear() + '<br/>' + 'Time: ' + obj.time +
+		              + parse_date.getDate() + ', ' + parse_date.getFullYear() + '<br/>' 
+		              + 'Time: ' + hour + ':' + minute + ' ' + amOrPm +
 		              '<br/>' + 'Location: ' + obj.loc + '<br/><br/>' + obj.description + '<br/></p></div></div>';
 		              
 		car.append(newHTML);
