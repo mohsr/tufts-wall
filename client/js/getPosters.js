@@ -19,8 +19,7 @@ function renderEvents(events) {
 		var newHTML = '<div class="slide' + spot + '"><div class="img_holder"><img src="' +
 		              obj.url + '" alt="Event Poster"/></div><div class="info">' + 
 		              '<p> <span class="eventtitle">' + obj.title + 
-		              '<br/></span>Date: ' + obj.date + '<br/>' + 'Time: ' + parse_date.getMonth() + ' ' + parse_date.getDate()
-		              + ', ' + parse_date.getFullYear() +
+		              '<br/></span>Date: ' + obj.date + '<br/>' + 'Time: ' + obj.time + 
 		              '<br/>' + 'Location: ' + obj.loc + '<br/><br/>' + obj.description + '<br/></p></div></div>';
 		car.append(newHTML);
 		if (spot === 'top') {
