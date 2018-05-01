@@ -36,6 +36,19 @@ app.get('/events', function(req, res) {
 				res.sendStatus(500);
 			} else {
 				results.reverse();
+
+				/* Delete old events from the database. */
+				var right_now = new Date();
+				for (var i = 0; i < results.length; i++) {
+					var event_time = new Date(Date.parse(results[i].page));
+					if (event_time < right_now) {
+						var id = require('mongodb').ObjectID(results[i]._id);
+						coll.deleteOne({'_id': id});
+						results.splice(i, 1);
+						i--;
+					}
+				}
+
 				res.send(results);
 			}
 		});
