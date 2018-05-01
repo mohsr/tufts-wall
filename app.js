@@ -55,11 +55,6 @@ app.get('/events', function(req, res) {
 	});
 });
 
-/* Event submission page. */
-app.get('/submit', function(req, res) {
-	res.sendFile(__dirname + '/client/submission.html');
-});
-
 /* Get a signed URL for image submission. */
 app.get('/storage-get', function(req, res) {
 	/* Get an unused random array of hex chars. */
