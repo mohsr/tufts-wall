@@ -35,10 +35,12 @@ function renderEvents(events) {
 		}
 
 		var imgHTML = '<img src="' + obj.url + '" alt="Event Poster"/>';
+		var page;
 		if (obj.page != '') {
-			var page = obj.page;
+			page = obj.page;
 			if (page.length >= 4) {
 				if (page.substring(0,4) != 'http') {
+					console.log(page.substring(0,4));
 					page = '//' + page;
 				}
 			}
