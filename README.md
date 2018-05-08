@@ -8,6 +8,13 @@ Using the webapp:
 ====================
 Visit www.tufts.io/wall to check it out!
 
+Going forward:
+====================
+Now that the semester is over, we would still like to continue working on 
+this project! We think it is a really cool idea and it could be helpful 
+for a lot of students, plus it was really fun to work on. So stay tuned 
+for more features!
+
 Problem statement
 ====================
 Posters for events at Tufts usually reside along the stairs leading to the Academic Quad from Tisch Library. These posters are replaced every week and tens of posters go to waste having potentially made little impact on the event's attendance, as not many people both look at and remember these events. We believe this information should be delivered digitally, since the majority of Tufts students already seek information on the web for events they are interested about.
