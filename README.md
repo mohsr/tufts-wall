@@ -6,7 +6,7 @@ Tufts Events Billboard
 
 Using the webapp:
 ====================
-Visit tufts.io/wall to check it out!
+Visit [tufts.io/wall] to check it out!
 
 Problem statement
 ====================
